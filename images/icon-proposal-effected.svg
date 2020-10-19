@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>icon-proposal-effected</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2.-Consulta-de-Propostas" transform="translate(-690.000000, -204.000000)">
+            <g id="Group-23" transform="translate(602.000000, 204.000000)">
+                <g id="Group-10">
+                    <g id="Group-12-Copy" transform="translate(72.000000, 0.000000)">
+                        <g id="icon-proposal-effected" transform="translate(16.000000, 0.000000)">
+                            <circle id="Oval" fill="#00B302" cx="10" cy="10" r="10"></circle>
+                            <polyline id="Stroke-3" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" points="6 10.9866667 8.1 13.75 14.75 5"></polyline>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

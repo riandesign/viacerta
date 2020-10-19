@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- https://igorescobar.github.io/jQuery-Mask-Plugin/ -->
+    <script src="javascripts/jquery.mask.min.js"></script>
+
+    <script src="javascripts/functions.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="stylesheets/general.css">
+
+    <title>ViaCerta Protótipo</title>
+  </head>
+  <body>
+
+    <div tabindex="0" class="btn-float-help" onclick="alert('Função não disponível para este protótipo.'); return false;"></div>
+
+    <!-- global-wrapper -->
+    <div class="global-wrapper">
+
+      <!-- aside-menu -->
+      <aside class="aside-menu">
+        <a class="aside-menu__home-link" href="index.html"></a>
+        <img class="aside-menu__sidenavbar-placeholder" src="images/bg-sidenav-bar.jpg" alt="">
+      </aside>
+      <!-- /aside-menu -->
+
+      <!-- content-wrapper -->
+      <div class="content-wrapper">
+
+        <!-- header-default -->
+        <header class="header-default">
+          <div class="header-default__logo">
+            <a href="index.html" data-toggle="tooltip" data-placement="bottom" title="Ir para início de ViaCerta">
+              <img src="images/logo-viacerta.svg" alt="ViaCerta">
+            </a>
+          </div>
+          <img tabindex="0" class="header-default__account" src="images/element-sidenav-bar-account.jpg" alt="Notificações | Alan Mathison">
+        </header>
+        <!-- /header-default -->
+
+
+
+        <section class="big-title">
+          <h1 tabindex="0">Cadastro de Proposta</h1>
+        </section>
+
+
+        <!-- main -->
+        <main>
+          <div class="container container--main">
+
+
+            <div class="row">
+              <div class="col-12">
+                <div class="card card--default-padding">
+                  <div class="row justify-content-center">
+                    <div class="col-6">
+
+                      <form autocomplete="off" onsubmit="window.location.href = 'cadastro_proposta_pre.html'; return false;">
+                        <div class="form-group">
+                          <label for="proposalProduct" required>Produto</label>
+                          <select class="form-control" id="proposalProduct" required>
+                            <option value="" disabled selected>Selecione um Produto</option>
+                            <option value="0001 – CP VIACERTA">0001 – CP VIACERTA</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="proposalCpf" required>CPF/CNPJ do Cliente</label>
+                          <input autocomplete="off" type="text" class="form-control" id="proposalCpf" placeholder="CPF/CNPJ do Cliente" required>
+                        </div>
+                        <div>
+                          <button style="float: right;" type="submit" class="btn btn-lg btn-primary">Continuar</button>
+                          <button style="float: left;" type="submit" class="btn btn-lg btn-secondaryb" onclick="window.location.href = 'index.html'; return false;">Cancelar</button>
+                        </div>
+                      </form>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </main>
+        <!-- /main -->
+
+
+      </div>
+      <!-- /content-wrapper -->
+
+    </div>
+    <!-- global-wrapper -->
+
+
+
+
+    <script>
+
+    $(document).ready(function () {
+
+
+      $('#proposalCpf').mask('000.000.000-00');
+
+    });
+    </script>
+
+  </body>
+</html>

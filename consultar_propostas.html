@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- Calendar picker -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $(function() {
+      $("#datepicker1, #datepicker2").datepicker({
+        dateFormat: "dd/mm/yy",
+        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+        nextText: 'Próximo',
+        prevText: 'Anterior'
+      });
+    });
+    </script>
+
+    <!-- https://igorescobar.github.io/jQuery-Mask-Plugin/ -->
+    <script src="javascripts/jquery.mask.min.js"></script>
+
+    <script src="javascripts/data_proposals.js"></script>
+    <script src="javascripts/functions.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="stylesheets/general.css">
+
+    <title>ViaCerta Protótipo</title>
+  </head>
+  <body>
+
+    <div tabindex="0" class="btn-float-help" onclick="alert('Função não disponível para este protótipo.'); return false;"></div>
+
+    <!-- global-wrapper -->
+    <div class="global-wrapper">
+
+      <!-- aside-menu -->
+      <aside class="aside-menu">
+        <a class="aside-menu__home-link" href="index.html"></a>
+        <img class="aside-menu__sidenavbar-placeholder" src="images/bg-sidenav-bar.jpg" alt="">
+      </aside>
+      <!-- /aside-menu -->
+
+      <!-- content-wrapper -->
+      <div class="content-wrapper">
+
+        <!-- header-default -->
+        <header class="header-default">
+          <div class="header-default__logo">
+            <a href="index.html" data-toggle="tooltip" data-placement="bottom" title="Ir para início de ViaCerta">
+              <img src="images/logo-viacerta.svg" alt="ViaCerta">
+            </a>
+          </div>
+          <img tabindex="0" class="header-default__account" src="images/element-sidenav-bar-account.jpg" alt="Notificações | Alan Mathison">
+        </header>
+        <!-- /header-default -->
+
+
+        <!-- main -->
+        <main>
+          <div class="container container--main">
+
+
+            <!-- ====== TOP PART ====== -->
+            <section>
+              <div class="row">
+                <div class="col-12">
+                  <div class="position-relative">
+                    <h2 tabindex="0">Consulta de Propostas</h2>
+
+                    <button style="position: absolute; top: 0; right: 0; margin-top: -16px;" class="btn btn-primary btn-lg" type="button" onclick="window.location.href = 'cadastro_proposta_intro.html'">
+                      <img src="images/icon-btn-add.svg" alt="" class="mr-2">
+                      Nova Proposta
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nav-tab-proposals">
+                <ul>
+                  <li proposal-tab="all" class="nav-tab-proposals__item nav-tab-proposals__item--no-icon nav-tab-proposals__item--active">
+                    <a href="#" filter-tab-ref="">
+                      Todas
+                    </a>
+                  </li><li
+                  class="nav-tab-proposals__item nav-tab-proposals__item--effected">
+                    <a href="#" filter-tab-ref="effected">
+                      Efetivadas
+                    </a>
+                  </li><li
+                  class="nav-tab-proposals__item nav-tab-proposals__item--approved">
+                    <a href="#" filter-tab-ref="approved">
+                      Aprovadas
+                    </a>
+                  </li><li
+                  class="nav-tab-proposals__item nav-tab-proposals__item--pending">
+                    <a href="#" filter-tab-ref="pending">
+                      Pendentes
+                    </a>
+                  </li><li
+                  class="nav-tab-proposals__item nav-tab-proposals__item--under-analysis">
+                    <a href="#" filter-tab-ref="under-analysis">
+                      Em Análise
+                    </a>
+                  </li><li
+                  class="nav-tab-proposals__item nav-tab-proposals__item--rejected">
+                    <a href="#" filter-tab-ref="rejected">
+                      Reprovadas
+                    </a>
+                  </li><li
+                  class="nav-tab-proposals__item nav-tab-proposals__item--cancelled">
+                    <a href="#" filter-tab-ref="cancelled">
+                      Canceladas
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </section>
+            <!-- /====== TOP PARTS ====== -->
+
+
+            <!-- ====== FILTERS ====== -->
+            <section class="mb-4">
+              <div class="row">
+                <div class="col-12">
+                  <div class="card card--default-padding">
+
+                    <form autocomplete="off" id="searchForm" class="form-filter position-relative">
+
+                      <!-- Filter row -->
+                      <div class="row">
+
+                        <div class="col-3">
+                          <div class="form-group">
+                            <label for="searchCpf">CPF</label>
+                            <input autocomplete="off" type="text" value-type="cpf" class="form-control" id="searchCpf" name="cpf" placeholder="CPF">
+                          </div>
+                        </div>
+
+                        <div class="col-3">
+                          <div class="form-group">
+                            <label for="searchName">Nome do cliente</label>
+                            <input autocomplete="off" type="text" class="form-control" id="searchName" name="customer" placeholder="Nome do cliente">
+                          </div>
+                        </div>
+
+                        <div class="col-3">
+                          <div class="form-group">
+                            <label for="searchProposal">Nº da proposta</label>
+                            <input autocomplete="off" type="text" class="form-control" id="searchProposal" name="proposal" placeholder="Nº da proposta">
+                          </div>
+                        </div>
+
+                        <div class="col-3">
+                          <div class="form-group">
+                            <label for="searchProduct">Produto</label>
+                            <select class="form-control" id="searchProduct" name="product">
+                              <option value="">Todos Produtos</option>
+                              <option value="0001 – CP VIACERTA">0001 – CP VIACERTA</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                      </div>
+                      <!-- /Filter row -->
+
+                      <!-- Filter row -->
+                      <div class="row">
+
+                        <div class="col-6">
+                          <div class="form-group">
+                            <label for="searchStatus">Situação</label>
+                            <div id="multi-filter" class="form-control multi-filter">
+                              <div class="multi-filter__placeholder">ex: efetivas, aprovadas...</div>
+                              <div class="multi-filter__list" style="display: none;">
+                                <ul>
+                                  <li>Aguardando formalização</li>
+                                  <li>Aprovada automaticamente</li>
+                                  <li>Aprovada manualmente</li>
+                                  <li>Cancelada</li>
+                                  <li>Com erro de análise</li>
+                                  <li>Com pendências de correção</li>
+                                  <li>Com pendências de análise</li>
+                                  <li>Conferência de cadastro</li>
+                                  <li>Efetivada</li>
+                                  <li>Em análise manual</li>
+                                  <li>Em análise automática</li>
+                                  <li>Em espera para análise</li>
+                                  <li>Fila de análise automática</li>
+                                  <li>Fila de análise manual</li>
+                                  <li>Pré-proposta aprovada</li>
+                                  <li>Pré-proposta em análise</li>
+                                  <li>Pré-proposta reprovada</li>
+                                  <li>Reprovada manualmente</li>
+                                </ul>
+                              </div>
+
+                              <div class="multi-filter__handle" style="display: none;"></div>
+                              <!-- <div class="multi-filter__item">Fila de Análise Automática</div><div class="multi-filter__item">Fila de Análise Manual</div><div class="multi-filter__item">Pré-Proposta em Análise</div> -->
+                            </div>
+                            <!-- <input autocomplete="off" type="text" class="form-control" id="searchStatus" placeholder="ex: efetivas, aprovadas..."> -->
+                          </div>
+                        </div>
+
+                        <div class="col-3">
+                          <div class="form-group">
+                            <label for="searchDateState">Período (data de início)</label>
+                            <input id="datepicker1" autocomplete="off" type="text" value-type="date" class="form-control" id="searchDateState" name="date_start" placeholder="__/__/____">
+                          </div>
+                        </div>
+
+                        <div class="col-3">
+                          <div class="form-group">
+                            <label for="searchDateEnd">Período (data de fim)</label>
+                            <input id="datepicker2" autocomplete="off" type="text" value-type="date" class="form-control" id="searchDateEnd" name="date_end" placeholder="__/__/____">
+                          </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                      </div>
+                      <!-- /Filter row -->
+
+                      <!-- Filter row -->
+                      <div class="row">
+
+                        <div class="col-3">
+                          <div class="form-group mb-0">
+                            <label for="searchStore">Lojas</label>
+                            <select class="form-control" id="searchStore" name="store">
+                              <option value="">Todas Lojas</option>
+                              <option value="Loja ViaCerta">Loja ViaCerta</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="col-6">
+                          <div class="form-group mb-0">
+                            <label>Tipo</label>
+
+                            <div class="mt-2">
+                              <div class="form-check form-check-inline">
+                                <input autocomplete="off" class="form-check-input" type="checkbox" id="searchType1" value="searchType1" name="proposal_type" checked>
+                                <label class="form-check-label" for="searchType1">Propostas</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input autocomplete="off" class="form-check-input" type="checkbox" id="searchType2" value="searchType2" name="proposal_type" checked>
+                                <label class="form-check-label" for="searchType2">Pré-propostas</label>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                      </div>
+                      <!-- /Filter row -->
+
+                      <div style="position: absolute; bottom: 0; right: 0;">
+                        <button class="btn btn-secondary" type="button" onclick="window.location.reload();">
+                          Limpar tudo
+                        </button>
+                        <button class="btn btn-primary ml-2" type="submit">
+                          Aplicar
+                        </button>
+                      </div>
+
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- ====== /FILTERS ====== -->
+
+
+            <!-- ====== PROPOSALS ====== -->
+            <section id="proposals">
+              <div class="card card--default-padding">
+
+                <div class="row">
+                  <div class="col-12">
+                    <h2 class="h2-sm" tabindex="0">Propostas</h2>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+
+                    <!-- <div class="table-responsive"> -->
+                    <div>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Proposta</th>
+                            <th scope="col">Situação</th>
+                            <th scope="col">Inclusão&nbsp;em</th>
+                            <th scope="col">Produto</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Nome&nbsp;do&nbsp;cliente</th>
+                            <th scope="col">Limite&nbsp;aprov.</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody id="proposal_build">
+
+                          <!-- <tr class="cursor-pointer">
+                            <td scope="row">3249092032</th>
+                            <td>
+                              <img class="d-inline-block v-align-middle mr-1" src="images/icon-proposal-effected.svg" alt="">
+                              <div class="d-inline-block v-align-middle table-cell-status">
+                                <strong class="color-effected">Efetivada</strong>
+                                <br><span class="tag-proposal tag-proposal--warning">Aguard. Assinatura</span>
+                              </div>
+                            </td>
+                            <td>Hoje</td>
+                            <td>0006 – CP VIACERTA</td>
+                            <td>00102063028</td>
+                            <td>ROBERTO JOSE BRYS</td>
+                            <td>R$ 6.000</td>
+                            <td>
+                              <div class="dropdown_dots">
+                                <button type="button" id="options_1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                <div class="dropdown-menu" aria-labelledby="options_1">
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-view.svg" alt=""> Visualizar</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-add-document.svg" alt=""> Incluir Documentos</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-edit.svg" alt=""> Editar</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr class="cursor-pointer">
+                            <td scope="row">2358843423</th>
+                            <td>
+                              <img class="d-inline-block v-align-middle mr-1" src="images/icon-proposal-under-analysis.svg" alt="">
+                              <div class="d-inline-block v-align-middle table-cell-status">
+                                <strong class="color-under-analysis">Em Análise</strong>
+                                <br><span class="tag-proposal tag-proposal--under-analysis">Em Análise Aut.</span>
+                              </div>
+                            </td>
+                            <td>Ontem</td>
+                            <td>0006 – CP VIACERTA</td>
+                            <td>00102063028</td>
+                            <td>ROBERTO JOSE BRYS</td>
+                            <td>—</td>
+                            <td>
+                              <div class="dropdown_dots">
+                                <button type="button" id="options_1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                <div class="dropdown-menu" aria-labelledby="options_1">
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-view.svg" alt=""> Visualizar</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-add-document.svg" alt=""> Incluir Documentos</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-edit.svg" alt=""> Editar</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr class="cursor-pointer">
+                            <td scope="row">7344231444</th>
+                            <td>
+                              <img class="d-inline-block v-align-middle mr-1" src="images/icon-proposal-rejected.svg" alt="">
+                              <div class="d-inline-block v-align-middle table-cell-status">
+                                <strong class="color-rejected">Reprovado</strong>
+                                <br><span class="tag-proposal tag-proposal--rejected">Reprovada Aut.</span>
+                              </div>
+                            </td>
+                            <td>Ontem</td>
+                            <td>0006 – CP VIACERTA</td>
+                            <td>00102063028</td>
+                            <td>ROBERTO JOSE BRYS</td>
+                            <td>—</td>
+                            <td>
+                              <div class="dropdown_dots">
+                                <button type="button" id="options_1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                <div class="dropdown-menu" aria-labelledby="options_1">
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-view.svg" alt=""> Visualizar</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-add-document.svg" alt=""> Incluir Documentos</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-edit.svg" alt=""> Editar</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr class="cursor-pointer">
+                            <td scope="row">8340721732</th>
+                            <td>
+                              <img class="d-inline-block v-align-middle mr-1" src="images/icon-proposal-approved.svg" alt="">
+                              <div class="d-inline-block v-align-middle table-cell-status">
+                                <strong class="color-approved">Aprovado</strong>
+                                <br><span class="tag-proposal tag-proposal--approved">Aprovada Aut.</span>
+                              </div>
+                            </td>
+                            <td>Ontem</td>
+                            <td>0006 – CP VIACERTA</td>
+                            <td>00102063028</td>
+                            <td>ROBERTO JOSE BRYS</td>
+                            <td>R$ 3.500</td>
+                            <td>
+                              <div class="dropdown_dots">
+                                <button type="button" id="options_1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                <div class="dropdown-menu" aria-labelledby="options_1">
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-view.svg" alt=""> Visualizar</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-add-document.svg" alt=""> Incluir Documentos</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-edit.svg" alt=""> Editar</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr class="cursor-pointer">
+                            <td scope="row">5622178733</th>
+                            <td>
+                              <img class="d-inline-block v-align-middle mr-1" src="images/icon-proposal-pending.svg" alt="">
+                              <div class="d-inline-block v-align-middle table-cell-status">
+                                <strong class="color-pending">Pendente</strong>
+                                <br><span class="tag-proposal tag-proposal--pending">Lorem Ipsum</span>
+                              </div>
+                            </td>
+                            <td>Ontem</td>
+                            <td>0006 – CP VIACERTA</td>
+                            <td>00102063028</td>
+                            <td>ROBERTO JOSE BRYS</td>
+                            <td>—</td>
+                            <td>
+                              <div class="dropdown_dots">
+                                <button type="button" id="options_1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                <div class="dropdown-menu" aria-labelledby="options_1">
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-view.svg" alt=""> Visualizar</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-add-document.svg" alt=""> Incluir Documentos</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-edit.svg" alt=""> Editar</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr class="cursor-pointer">
+                            <td scope="row">7344231444</th>
+                            <td>
+                              <img class="d-inline-block v-align-middle mr-1" src="images/icon-proposal-rejected.svg" alt="">
+                              <div class="d-inline-block v-align-middle table-cell-status">
+                                <strong class="color-rejected">Reprovado</strong>
+                                <br><span class="tag-proposal tag-proposal--rejected">Reprovada Aut.</span>
+                              </div>
+                            </td>
+                            <td>15/06/2020</td>
+                            <td>0006 – CP VIACERTA</td>
+                            <td>00102063028</td>
+                            <td>ROBERTO JOSE BRYS</td>
+                            <td>—</td>
+                            <td>
+                              <div class="dropdown_dots">
+                                <button type="button" id="options_1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                <div class="dropdown-menu" aria-labelledby="options_1">
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-view.svg" alt=""> Visualizar</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-add-document.svg" alt=""> Incluir Documentos</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-edit.svg" alt=""> Editar</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr class="cursor-pointer">
+                            <td scope="row">8340721732</th>
+                            <td>
+                              <img class="d-inline-block v-align-middle mr-1" src="images/icon-proposal-approved.svg" alt="">
+                              <div class="d-inline-block v-align-middle table-cell-status">
+                                <strong class="color-approved">Aprovado</strong>
+                                <br><span class="tag-proposal tag-proposal--approved">Aprovada Aut.</span>
+                              </div>
+                            </td>
+                            <td>15/06/2020</td>
+                            <td>0006 – CP VIACERTA</td>
+                            <td>00102063028</td>
+                            <td>ROBERTO JOSE BRYS</td>
+                            <td>R$ 3.500</td>
+                            <td>
+                              <div class="dropdown_dots">
+                                <button type="button" id="options_1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                <div class="dropdown-menu" aria-labelledby="options_1">
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-view.svg" alt=""> Visualizar</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-add-document.svg" alt=""> Incluir Documentos</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-edit.svg" alt=""> Editar</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr class="cursor-pointer">
+                            <td scope="row">8340721732</th>
+                            <td>
+                              <img class="d-inline-block v-align-middle mr-1" src="images/icon-proposal-approved.svg" alt="">
+                              <div class="d-inline-block v-align-middle table-cell-status">
+                                <strong class="color-approved">Aprovado</strong>
+                                <br><span class="tag-proposal tag-proposal--approved">Aprovada Aut.</span>
+                              </div>
+                            </td>
+                            <td>15/06/2020</td>
+                            <td>0006 – CP VIACERTA</td>
+                            <td>00102063028</td>
+                            <td>ROBERTO JOSE BRYS</td>
+                            <td>R$ 3.500</td>
+                            <td>
+                              <div class="dropdown_dots">
+                                <button type="button" id="options_1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                <div class="dropdown-menu" aria-labelledby="options_1">
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-view.svg" alt=""> Visualizar</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-add-document.svg" alt=""> Incluir Documentos</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-edit.svg" alt=""> Editar</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr class="cursor-pointer">
+                            <td scope="row">8340721732</th>
+                            <td>
+                              <img class="d-inline-block v-align-middle mr-1" src="images/icon-proposal-approved.svg" alt="">
+                              <div class="d-inline-block v-align-middle table-cell-status">
+                                <strong class="color-approved">Aprovado</strong>
+                                <br><span class="tag-proposal tag-proposal--approved">Aprovada Aut.</span>
+                              </div>
+                            </td>
+                            <td>15/06/2020</td>
+                            <td>0006 – CP VIACERTA</td>
+                            <td>00102063028</td>
+                            <td>ROBERTO JOSE BRYS</td>
+                            <td>R$ 3.500</td>
+                            <td>
+                              <div class="dropdown_dots">
+                                <button type="button" id="options_1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                <div class="dropdown-menu" aria-labelledby="options_1">
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-view.svg" alt=""> Visualizar</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-add-document.svg" alt=""> Incluir Documentos</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-edit.svg" alt=""> Editar</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+
+                          <tr class="cursor-pointer">
+                            <td scope="row">8340721732</th>
+                            <td>
+                              <img class="d-inline-block v-align-middle mr-1" src="images/icon-proposal-approved.svg" alt="">
+                              <div class="d-inline-block v-align-middle table-cell-status">
+                                <strong class="color-approved">Aprovado</strong>
+                                <br><span class="tag-proposal tag-proposal--approved">Aprovada Aut.</span>
+                              </div>
+                            </td>
+                            <td>15/06/2020</td>
+                            <td>0006 – CP VIACERTA</td>
+                            <td>00102063028</td>
+                            <td>ROBERTO JOSE BRYS</td>
+                            <td>R$ 3.500</td>
+                            <td>
+                              <div class="dropdown_dots">
+                                <button type="button" id="options_1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                <div class="dropdown-menu" aria-labelledby="options_1">
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-view.svg" alt=""> Visualizar</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-add-document.svg" alt=""> Incluir Documentos</a>
+                                  <a class="dropdown-item" href="#"><img src="images/icon-proposal-edit.svg" alt=""> Editar</a>
+                                </div>
+                              </div>
+                            </td>
+                          </tr> -->
+
+                        </tbody>
+                      </table>
+
+
+                      <nav aria-label="Page navigation example">
+                        <div class="pt-3">Exibindo 1-20 de 592</div>
+
+                        <ul class="pagination justify-content-center">
+                          <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" onclick="alert('Função não disponível para este protótipo.'); return false;">Primeira</a>
+                          </li>
+                          <li class="page-item active"><a class="page-link" href="#" onclick="alert('Função não disponível para este protótipo.'); return false;">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#" onclick="alert('Função não disponível para este protótipo.'); return false;">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#" onclick="alert('Função não disponível para este protótipo.'); return false;">3</a></li>
+                          <li class="page-item"><a class="page-link" href="#" onclick="alert('Função não disponível para este protótipo.'); return false;">4</a></li>
+                          <li class="page-item"><a class="page-link" href="#" onclick="alert('Função não disponível para este protótipo.'); return false;">5</a></li>
+                          <li class="page-item"><a class="page-link" href="#" onclick="alert('Função não disponível para este protótipo.'); return false;">6</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#" onclick="alert('Função não disponível para este protótipo.'); return false;">Última</a>
+                          </li>
+                        </ul>
+                      </nav>
+
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </section>
+            <!-- ====== /PROPOSALS ====== -->
+
+
+
+
+
+
+          </div>
+        </main>
+        <!-- /main -->
+
+
+      </div>
+      <!-- /content-wrapper -->
+
+    </div>
+    <!-- global-wrapper -->
+
+
+    <script>
+    $(document).ready(function () {
+
+      $('[value-type="cpf"]').mask('000.000.000-00');
+      $('[value-type="date"]').mask('00/00/0000');
+
+
+
+      var statusPreSelected = null; // If use selected a status tab
+
+
+      // var proposals comes from data_proposals.js
+
+      function buildList(proposals) {
+
+        $('#proposal_build').empty();
+
+        $.each(proposals, function(index, value) {
+          var newProposal;
+
+          newProposal += `
+            <tr
+              proposal-ref="` + value.proposalId + `"
+              proposal-type-ref="` + value.proposalType + `"
+              proposal-status-ref="` + value.statusId + `"
+              proposal-date-ref="` + value.date + `"
+              proposal-product-ref="` + value.product.toLowerCase() + `"
+              proposal-cpf-ref="` + value.cpf + `"
+              proposal-customer-ref="` + value.customer.toLowerCase() + `"
+              proposal-value-ref="` + value.value + `"
+              proposal-store-ref="` + value.store.toLowerCase() + `"
+              class="cursor-pointer">
+              <td scope="row">` + value.proposalId + `</th>
+              <td>
+                <img class="d-inline-block v-align-middle mr-1" src="images/icon-proposal-` + value.statusId + `.svg" alt="">
+                <div class="d-inline-block v-align-middle table-cell-status">
+                  <strong class="color-` + value.statusId + `">` + value.status + `</strong>
+                  <br><span class="tag-proposal tag-proposal--` + value.statusDescId + `">` + value.statusDesc + `</span>
+                </div>
+              </td>
+              <td>` + value.date + `</td>
+              <td>` + value.product + `</td>
+              <td>` + value.cpf + `</td>
+              <td>` + value.customer + `</td>
+              <td>` + value.value + `</td>
+              <td>
+                <div class="dropdown_dots">
+                  <button type="button" id="options_1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                  <div class="dropdown-menu" aria-labelledby="options_1">
+                    <a class="dropdown-item" href="#"><img src="images/icon-proposal-view.svg" alt=""> Visualizar</a>
+                    <a class="dropdown-item" href="#"><img src="images/icon-proposal-add-document.svg" alt=""> Incluir Documentos</a>
+                    <a class="dropdown-item" href="#"><img src="images/icon-proposal-edit.svg" alt=""> Editar</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          `;
+
+          $('#proposal_build').append(newProposal);
+        });
+      }
+
+
+
+      // ON PAGE LOAD
+      // LOAD ALL PROPOSALS BUT THE EFFECTED ONES
+      var proposalsFiltered = $.grep(proposals, function(v) {
+        return v.statusDescId !== 'effected'
+      });
+      buildList(proposalsFiltered);
+
+
+
+
+      // GET STATUS FROM URL
+      var urlParams = new URLSearchParams(window.location.search);
+
+      // JUMP DIRECTLY TO APPROVED PROPOSALS
+      if (urlParams.has('status') === true) {
+        var status = urlParams.get('status');
+        $('.nav-tab-proposals li').removeClass('nav-tab-proposals__item--active');
+        $('[filter-tab-ref="' + status + '"]').closest('li').addClass('nav-tab-proposals__item--active');
+        $('#proposal_build tr').hide();
+        $('[proposal-status-ref="' + status + '"]').fadeIn();
+
+        $('html, body').animate({
+          scrollTop: $("#proposals").offset().top
+        }, 1000);
+      }
+
+
+
+
+      // FILTER TAB ====================
+      $('.nav-tab-proposals li a').click(function () {
+        buildList(proposals);
+
+        $('.nav-tab-proposals li').removeClass('nav-tab-proposals__item--active');
+        $(this).closest('li').addClass('nav-tab-proposals__item--active');
+
+        $('html, body').animate({
+          scrollTop: $("#proposals").offset().top
+        }, 1000);
+
+        var proposalStatus = $(this).attr('filter-tab-ref');
+
+        if (proposalStatus != '') {
+          $('#proposal_build tr').hide();
+          $('[proposal-status-ref="' + proposalStatus + '"]').fadeIn();
+        } else {
+          // rebuild
+          var proposalsFiltered = $.grep(proposals, function(v) {
+            return v.statusDescId !== 'effected'
+          });
+          buildList(proposalsFiltered);
+
+          $('#proposal_build tr').fadeIn();
+          // $('[proposal-status-ref="effected"]').hide(); // Hide all effected proposals
+        }
+
+        // Clean all inputs
+        $('#searchForm')[0].reset();
+
+        statusPreSelected = proposalStatus;
+
+        return false;
+      });
+
+
+
+      // MULTI FILTER INPUT ============
+      var multiFilterCount = 0;
+
+      // $('#multi-filter').on('click', function(e) {
+      //   if (e.target !== this) // Avoid triggering fake "input" when clicking filter items
+      //     return;
+      //
+      //   $('#multi-filter .multi-filter__list').show();
+      //   $('#multi-filter .multi-filter__handle').show();
+      //   event.stopPropagation();
+      // });
+
+      // $(document).click(function() {
+      //   $('#multi-filter .multi-filter__list').hide();
+      //   $('#multi-filter .multi-filter__handle').hide();
+      // });
+
+      $(document).keyup(function(e) {
+        // esc
+        if (e.keyCode === 27) {
+          $('#multi-filter .multi-filter__list').hide();
+          $('#multi-filter .multi-filter__handle').hide();
+        }
+      });
+
+      $(document).mouseup(function(e) {
+        var container = $("#multi-filter");
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+          $('#multi-filter .multi-filter__list').hide();
+          $('#multi-filter .multi-filter__handle').hide();
+        } else {
+          $('#multi-filter .multi-filter__list').show();
+          $('#multi-filter .multi-filter__handle').show();
+        }
+      });
+
+      $('#multi-filter .multi-filter__handle').click(function() {
+        $(this).hide();
+        $('#multi-filter .multi-filter__list').hide();
+        return false;
+      });
+
+      $('#multi-filter .multi-filter__list li').click(function() {
+        var filterValue = $(this).html();
+        $('#multi-filter').append('<div class="multi-filter__item">' + filterValue + '</div>');
+        multiFilterCount++;
+        updateMultiFilterCountPlaceHolder();
+      });
+
+      $('#multi-filter').on('click', '.multi-filter__item', function() {
+        $(this).fadeOut(500, function() {
+          updateMultiFilterCountPlaceHolder();
+        });
+        multiFilterCount--;
+      });
+
+
+      function updateMultiFilterCountPlaceHolder() {
+        if (multiFilterCount <= 0) {
+          $('#multi-filter .multi-filter__placeholder').show();
+        } else {
+          $('#multi-filter .multi-filter__placeholder').hide();
+        }
+      }
+
+
+
+      // SEARCH FORM ===================
+      $( "#searchForm" ).submit(function( event ) {
+
+        var cpf = $('form [name=cpf]').val();
+        var customer = $('form [name=customer]').val();
+        var proposal = $('form [name=proposal]').val();
+        var product = $('form [name=product]').children("option:selected").val();
+        var store = $('form [name=store]').children("option:selected").val();
+
+        var proposalsFiltered = $.grep(proposals, function(v) {
+          return (statusPreSelected != null ? v.statusId === statusPreSelected : true) &&
+                 (cpf != '' ? v.cpf === cpf : true) &&
+                 (customer != '' ? v.customer === customer : true) &&
+                 (proposal != '' ? v.proposalId === proposal : true) &&
+                 (product != '' ? v.product === product : true) &&
+                 (store != '' ? v.store === store : true);
+        });
+
+        buildList(proposalsFiltered);
+
+        $('html, body').animate({
+          scrollTop: $("#proposals").offset().top
+        }, 1000);
+
+        event.preventDefault();
+      });
+
+    });
+    </script>
+
+  </body>
+</html>

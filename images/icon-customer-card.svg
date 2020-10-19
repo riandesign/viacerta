@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="35px" height="45px" viewBox="0 0 35 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 7</title>
+    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="7.-Inicialização-–-Cadastro-de-Proposta-&gt;-2.Proposta" transform="translate(-677.000000, -412.000000)">
+            <g id="Group-11" transform="translate(645.000000, 388.000000)">
+                <g id="Group-7" transform="translate(32.000000, 24.000000)">
+                    <path d="M31.923,45 L2.5785,45 C1.1535,45 0,43.8465 0,42.423 L0,2.577 C0,1.1535 1.1535,0 2.5785,0 L31.923,0 C33.3465,0 34.5,1.1535 34.5,2.577 L34.5,42.423 C34.5,43.8465 33.3465,45 31.923,45 Z" id="Stroke-5" fill="#224D74"></path>
+                    <path d="M8.04825,30.75 L26.45325,30.75 C26.06925,27.312 23.82375,24.4425 20.73225,23.1885 C21.75525,22.2465 22.40625,20.907 22.40625,19.407 C22.40625,16.5585 20.09775,14.25 17.25075,14.25 C14.40225,14.25 12.09375,16.5585 12.09375,19.407 C12.09375,20.907 12.74625,22.2465 13.76925,23.1885 C10.67775,24.4425 8.43225,27.312 8.04825,30.75 Z" id="Stroke-7" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

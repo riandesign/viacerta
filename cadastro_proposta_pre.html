@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- https://igorescobar.github.io/jQuery-Mask-Plugin/ -->
+    <script src="javascripts/jquery.mask.min.js"></script>
+
+    <script src="javascripts/functions.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="stylesheets/general.css">
+
+    <title>ViaCerta Protótipo</title>
+  </head>
+  <body>
+
+
+
+    <!-- Modal Result -->
+    <div class="modal fade" id="modalResult" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div> -->
+
+          <!-- Approved -->
+          <div result-ref="approved">
+            <div class="modal-body">
+              <div class="text-center">
+                <img class="mb-2 mt-4" src="images/icon-modal-approved.svg" alt="">
+                <h4 class="color-approved">Cliente foi pré-aprovado</h4>
+                <div class="txt-lg">
+                  <strong>O limite gerado é de R$ 3.000</strong><br>
+                  Agora, precisamos de mais alguns dados<br>
+                  para concluir o cadastro.
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer modal-footer--centered">
+              <button type="button" class="btn btn-lg btn-primary mb-2" onclick="window.location.href = 'cadastro_proposta_inicializacao.html'">Continuar</button>
+              <br>
+              <button type="button" class="btn btn-light2" onclick="window.location.href = 'consultar_propostas.html'">Continuar depois</button>
+            </div>
+          </div>
+
+          <!-- rejected -->
+          <div result-ref="rejected" style="display: none;">
+            <div class="modal-body">
+              <div class="text-center">
+                <img class="mb-2 mt-4" src="images/icon-modal-rejected.svg" alt="">
+                <h4 class="color-rejected">Cliente não aprovado</h4>
+                <div class="txt-lg">
+                  Infelizmente, não foi possível aprovar o cliente.<br>
+                  Favor <strong>aguardar 45 dias</strong> para uma nova tentativa.
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer modal-footer--centered">
+              <button type="button" class="btn btn-lg btn-light-outlined" style="min-width: 100px;" data-dismiss="modal">Ok</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Modal Wait Sending Proposal -->
+    <div class="modal fade" id="modalSending" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div> -->
+
+          <div class="modal-body">
+            <div class="text-center">
+              <img class="mb-3 mt-4" src="images/icon-modal-sending-proposal.svg" alt="">
+              <div class="txt-lg">
+                <strong>Aguarde um momento,</strong><br>
+                estamos submetendo a sua pré-proposta...
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer modal-footer--centered">
+            <!-- <button type="button" class="btn btn-light2" data-dismiss="modal">Cancelar</button> -->
+            <button type="button" class="btn btn-light2">Cancelar</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div tabindex="0" class="btn-float-help" onclick="alert('Função não disponível para este protótipo.'); return false;"></div>
+
+    <!-- global-wrapper -->
+    <div class="global-wrapper">
+
+      <!-- aside-menu -->
+      <aside class="aside-menu">
+        <a class="aside-menu__home-link" href="index.html"></a>
+        <img class="aside-menu__sidenavbar-placeholder" src="images/bg-sidenav-bar.jpg" alt="">
+      </aside>
+      <!-- /aside-menu -->
+
+      <!-- content-wrapper -->
+      <div class="content-wrapper">
+
+        <!-- header-default -->
+        <header class="header-default">
+          <div class="header-default__logo">
+            <a href="index.html" data-toggle="tooltip" data-placement="bottom" title="Ir para início de ViaCerta">
+              <img src="images/logo-viacerta.svg" alt="ViaCerta">
+            </a>
+          </div>
+          <img tabindex="0" class="header-default__account" src="images/element-sidenav-bar-account.jpg" alt="Notificações | Alan Mathison">
+        </header>
+        <!-- /header-default -->
+
+
+
+        <section class="big-title">
+          <h1 tabindex="0">Cadastro de Proposta</h1>
+        </section>
+
+
+        <!-- main -->
+        <main>
+          <div class="container container--main">
+
+            <div class="row">
+              <div class="col-12">
+                <div class="card card--default-padding">
+
+
+                  <div class="text-center mt-1 mb-5">
+                    <img class="proposal-timeline" src="images/proposal-register-steps-1.svg" alt="Etapa atual: Pré-proposta">
+                  </div>
+
+
+                  <form autocomplete="off" id="proposalForm">
+                    <div class="row justify-content-center">
+                      <div class="col-8">
+
+                        <div class="form-group">
+                          <label for="proposalCpf">CPF do Cliente</label>
+                          <input autocomplete="off" type="text" class="form-control" id="proposalCpf" value="442.223.782-22" readonly>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalLimit" required>Limite Solicitado</label>
+                              <div class="input-currency">
+                                <input value-type="currency" autocomplete="off" type="text" class="form-control" id="proposalLimit" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalPhone" required>Celular</label>
+                              <input value-type="phone" autocomplete="off" type="text" class="form-control" id="proposalPhone" placeholder="(00) 00000-0000" required>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalCep" required>CEP</label>
+                              <input value-type="zipcode" autocomplete="off" type="text" class="form-control" id="proposalCep" placeholder="CEP" required>
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalHomeType" required>Tipo de Residência</label>
+                              <select class="form-control" id="proposalHomeType" required>
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="Alugada">Alugada</option>
+                                <option value="Mora com família">Mora com família</option>
+                                <option value="Moradia cedida">Moradia cedida</option>
+                                <option value="Mora no emprego">Mora no emprego</option>
+                                <option value="Própria">Própria</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalHomeType" required>Estado Civil</label>
+                              <select class="form-control" id="proposalHomeType" required>
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="Casado">Casado</option>
+                                <option value="Separado">Separado</option>
+                                <option value="Solteiro">Solteiro</option>
+                                <option value="União estável">União estável</option>
+                                <option value="Viúvo">Viúvo</option>
+                              </select>
+                            </div>
+                          </div>
+                          <!-- <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalDependents" required>Número de Dependentes</label>
+                              <select class="form-control" id="proposalHomeType" required>
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="Mais de 3">Mais de 3</option>
+                              </select>
+                            </div>
+                          </div> -->
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalEducation" required>Grau de Instrução</label>
+                              <select class="form-control" id="proposalEducation" required>
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="Não alfabetizado">Não alfabetizado</option>
+                                <option value="Fundamental">Fundamental</option>
+                                <option value="Médio">Médio</option>
+                                <option value="Superior incompleto">Superior incompleto</option>
+                                <option value="Superior/Pós/MBA">Superior/Pós/MBA</option>
+                                <option value="Mestrado/Doutorado">Mestrado/Doutorado</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalProfessionalClass" required>Classe Profissional</label>
+                              <select class="form-control" id="proposalProfessionalClass" required>
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="Agricultor">Agricultor</option>
+                                <option value="Aposentado">Aposentado</option>
+                                <option value="Assalariado">Assalariado</option>
+                                <option value="Autônomo">Autônomo</option>
+                                <option value="Empresário">Empresário</option>
+                                <option value="Profissional Liberal">Profissional Liberal</option>
+                                <option value="Servidor Público">Servidor Público</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalWorkSince" required>Atividade Desde</label>
+                              <input value-type="date_month" autocomplete="off" autocomplete="off" type="text" placeholder="__/____" class="form-control" id="proposalWorkSince" required>
+                              <!-- <input autocomplete="off" type="month" value="2020-09" class="form-control" id="proposalWorkSince" placeholder="Atividade Desde" required> -->
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalGrossIncome" required>Renda Bruta</label>
+                              <div class="input-currency">
+                                <input value-type="currency" autocomplete="off" type="text" class="form-control" id="proposalGrossIncome" required>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="divider"></div>
+                      </div>
+                    </div>
+
+                    <!-- additional-documents -->
+                    <div class="additional-documents">
+                      <div class="row justify-content-center">
+                        <div class="col-8">
+
+                          <div class="additional-documents__header">
+                            <h4 tabindex="0">Agilize o cadastro realizando o anexo dos documentos</h4>
+                            <div>Com os documentos, o sistema faz o preenchimento automático de campos cadastrais</div>
+                          </div>
+
+                          <div class="mt-4">
+                            <input autocomplete="off" type="file" class="form-control-file d-inline-block" id="proposalAdditionalFile">
+                            <select class="form-control d-inline-block" id="proposalAdditionalFileType">
+                              <!-- <option value="" disabled selected>Selecione</option>
+                              <option value="Autorização">Autorização</option>
+                              <option value="Conta Bancária">Conta Bancária</option>
+                              <option value="Contrato">Contrato</option>
+                              <option value="Comprovante de Endereço">Comprovante de Endereço</option>
+                              <option value="Comprovante de Renda">Comprovante de Renda</option>
+                              <option value="Foto do Cliente">Foto do Cliente</option>
+                              <option value="Identificação">Identificação</option>
+                              <option value="Orçamento">Orçamento</option>
+                              <option value="Matrícula do Imóvel">Matrícula do Imóvel</option>
+                              <option value="Outro">Outro</option> -->
+
+                              <option value="" disabled selected>Selecione</option>
+                              <option value="Comprovante de Endereço">Comprovante de Endereço</option>
+                              <option value="Comprovante de Renda">Comprovante de Renda</option>
+                              <option value="Conta Bancária">Conta Bancária</option>
+                              <option value="Identidade">Identidade</option>
+                            </select>
+                            <button name="add_document_file" class="btn btn-upload btn-lg d-inline-block" type="button">
+                              Enviar
+                            </button>
+                          </div>
+
+                          <div id="additionalFiles" class="additional-documents__files" style="display: none;">
+                            <ul></ul>
+                          </div>
+
+                          <!-- <div class="additional-documents__files">
+                            <ul>
+                              <li class="additional-documents__files__item">
+                                <a href="#">
+                                  <span class="additional-documents__files__item__name">Identificação</span>
+                                  <span>(RG do cliente.jpg)</span>
+                                </a>
+                                <div class="additional-documents__files__item__remove" href="#" data-toggle="tooltip" data-placement="top" title="Excluir arquivo"></div>
+                              </li>
+                              <li class="additional-documents__files__item">
+                                <a href="#">
+                                  <span class="additional-documents__files__item__name">Comprovante de Renda</span>
+                                  <span>(meucompr-janeiro.jpg)</span>
+                                </a>
+                                <div class="additional-documents__files__item__remove" href="#" data-toggle="tooltip" data-placement="top" title="Excluir arquivo"></div>
+                              </li>
+                            </ul>
+                          </div> -->
+
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /additional-documents -->
+
+
+
+                    <div class="row justify-content-center">
+                      <div class="col-8">
+                        <button style="float: right;" type="submit" class="btn btn-lg btn-primary">Continuar</button>
+                        <button style="float: left;" type="submit" class="btn btn-lg btn-secondaryb" onclick="if (confirm('Tem certeza de que deseja descartar esta proposta?')) { window.location.href = 'consultar_propostas.html'; } return false;">Cancelar</button>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </main>
+        <!-- /main -->
+
+
+      </div>
+      <!-- /content-wrapper -->
+
+    </div>
+    <!-- global-wrapper -->
+
+
+    <script>
+    $(document).ready(function () {
+
+      // $('[value-type="currency"]').mask('#.##0,00', {reverse: true});
+      $('[value-type="currency"]').mask('#.##0', {reverse: true});
+      $('[value-type="phone"]').mask('(00) 00000-0000');
+      $('[value-type="zipcode"]').mask('00000-000');
+      $('[value-type="date"]').mask('00/00/0000');
+      $('[value-type="date_month"]').mask('00/0000');
+
+      $('#proposalForm').submit(function () {
+
+        $("#modalSending").modal({
+          backdrop: 'static',
+          keyboard: false
+        });
+
+        setTimeout(function(){
+          $("#modalSending").modal('hide');
+
+          $("#modalResult").modal({
+            backdrop: 'static',
+            keyboard: false
+          });
+        }, 3000);
+
+        return false;
+      });
+
+    });
+    </script>
+
+
+  </body>
+</html>

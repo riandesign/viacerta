@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Artboard</title>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-4" transform="translate(0.000000, 6.000000)">
+            <g id="Group-2" fill="#F6F8FA" stroke="#43425D" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                <path d="M29.0679847,32.6325182 L12.0566803,32.6325182 C11.2305934,32.6325182 10.5618977,31.7780738 10.5618977,30.7236293 L10.5618977,1.20807376 C10.5618977,0.153629318 11.2305934,-0.700815127 12.0566803,-0.700815127 L29.0679847,-0.700815127 C29.8932021,-0.700815127 30.5618977,0.153629318 30.5618977,1.20807376 L30.5618977,30.7236293 C30.5618977,31.7780738 29.8932021,32.6325182 29.0679847,32.6325182 Z" id="Stroke-5" transform="translate(20.561898, 15.965852) rotate(-265.000000) translate(-20.561898, -15.965852) "></path>
+                <path d="M28.506087,31.1111111 L11.4947826,31.1111111 C10.6686957,31.1111111 10,30.1712222 10,29.0113333 L10,-3.45577778 C10,-4.61566667 10.6686957,-5.55555556 11.4947826,-5.55555556 L28.506087,-5.55555556 C29.3313043,-5.55555556 30,-4.61566667 30,-3.45577778 L30,29.0113333 C30,30.1712222 29.3313043,31.1111111 28.506087,31.1111111 Z" id="Stroke-5" transform="translate(20.000000, 12.777778) rotate(-276.000000) translate(-20.000000, -12.777778) "></path>
+            </g>
+            <text id="$" transform="translate(30.503291, 10.613850) rotate(-6.000000) translate(-30.503291, -10.613850) " font-family="SourceSansPro-Bold, Source Sans Pro" font-size="15.5555556" font-weight="bold" letter-spacing="-0.207407415" fill="#43425D">
+                <tspan x="26.5003284" y="16.1138502">$</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

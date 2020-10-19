@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+
+    <script src="javascripts/functions.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="stylesheets/general.css">
+
+    <title>ViaCerta Protótipo</title>
+  </head>
+  <body>
+
+
+
+
+    <!-- Modal Wait Sending Proposal -->
+    <div class="modal fade" id="modalSendViaWhatsApp" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="text-center">
+              <div class="txt-lg mt-4">
+                <strong>Foi enviada uma mensagem pelo WhatsApp</strong><br>
+                para o número (55) 98803-2240<br>
+                para a realização da Assinatura Digital.
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer modal-footer--centered">
+            <button type="button" class="btn btn-primary pl-4 pr-4" onclick="window.location.href = 'consultar_propostas.html'">Acompanhar Proposta</button>
+            <br>
+            <button type="button" class="btn btn-light2 pl-4 pr-4" data-dismiss="modal">Voltar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Modal Approved -->
+    <div class="modal fade" id="modalFormalizeDigital" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div> -->
+
+          <div class="modal-body">
+            <div class="text-center">
+              <img class="mb-2 mt-4" src="images/icon-formalize-proposal.svg" alt="">
+              <h4 class="h4-sm">
+                Formalizar<br>
+                <strong>Assinatura Digital</strong>
+              </h4>
+
+              <div class="formalize-options mt-4 ml-5 mr-5">
+                <ul>
+                  <li class="formalize-options__item formalize-options__item--email">
+                    <a href="#" onclick="alert('Função não disponível para este protótipo.'); return false;">
+                      <span>Via e-mail</span><br>
+                      rafael.almeidaso@yahoo.com.br
+                    </a>
+                  </li>
+                  <li class="formalize-options__item formalize-options__item--whatsapp">
+                    <a href="#" onclick="return false;" data-dismiss="modal" data-toggle="modal" data-target="#modalSendViaWhatsApp">
+                      <span>Via WhatsApp</span><br>
+                      (61) 98820-3232
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="modal-footer modal-footer--centered">
+            <button type="button" class="btn btn-light2" data-dismiss="modal">Cancelar</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <div tabindex="0" class="btn-float-help" onclick="alert('Função não disponível para este protótipo.'); return false;"></div>
+
+    <!-- global-wrapper -->
+    <div class="global-wrapper">
+
+      <!-- aside-menu -->
+      <aside class="aside-menu">
+        <a class="aside-menu__home-link" href="index.html"></a>
+        <img class="aside-menu__sidenavbar-placeholder" src="images/bg-sidenav-bar.jpg" alt="">
+      </aside>
+      <!-- /aside-menu -->
+
+      <!-- content-wrapper -->
+      <div class="content-wrapper">
+
+        <!-- header-default -->
+        <header class="header-default">
+          <div class="header-default__logo">
+            <a href="index.html" data-toggle="tooltip" data-placement="bottom" title="Ir para início de ViaCerta">
+              <img src="images/logo-viacerta.svg" alt="ViaCerta">
+            </a>
+          </div>
+          <img tabindex="0" class="header-default__account" src="images/element-sidenav-bar-account.jpg" alt="Notificações | Alan Mathison">
+        </header>
+        <!-- /header-default -->
+
+
+
+        <section class="big-title big-title--with-info">
+          <h1 tabindex="0">Formalização da Proposta</h1>
+          <ul class="big-title__info">
+            <li><strong>Proposta</strong>: 846251</li>
+            <li><strong>Produto</strong>: 0001 - CP VIACERTA</li>
+          </ul>
+        </section>
+
+
+        <!-- main -->
+        <main>
+          <div class="container container--main">
+
+            <div class="row">
+              <div class="col-12">
+                <div class="card card--default-padding">
+
+
+                  <!-- customer-card -->
+                  <div class="customer-card">
+                    <div class="customer-card__column">
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">CPF</div>
+                        442.223.782-22
+                      </div>
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">Valor da Compra</div>
+                        R$ 3.000
+                      </div>
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">Valor da Parcela</div>
+                        R$ 500
+                      </div>
+                    </div>
+
+                    <div class="customer-card__column">
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">Nome</div>
+                        Rafael Almeida Soares
+                      </div>
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">Prazo</div>
+                        6 meses
+                      </div>
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">Liberação</div>
+                        Em Conta Bancária
+                      </div>
+                    </div>
+
+                    <div class="customer-card__column">
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">Limite Solicitado</div>
+                        R$ 3.000
+                      </div>
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">1º Pagamento</div>
+                        06/06/2020
+                      </div>
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">Banco</div>
+                        Banco do Brasil
+                      </div>
+                    </div>
+
+                    <div class="customer-card__column">
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">Objetivo de Crédito</div>
+                        Reforma da Residência
+                      </div>
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">Forma de Pagamento</div>
+                        Boleto Bancário
+                      </div>
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">Conta</div>
+                        Ag: 1377-3 / CC: 23527-0
+                      </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                  </div>
+                  <!-- /customer-card -->
+
+
+
+
+                  <div class="row">
+
+                    <div class="col-6">
+                      <div class="box-options">
+                        <h2 tabindex="0">
+                          <img src="images/icon-generate-payment-meat.svg" alt="" class="mr-2">
+                          Emitir Carnê
+                        </h2>
+
+                        <ul>
+                          <li>
+                            <a href="#" onclick="alert('Função não disponível para este protótipo.'); return false;">
+                              <img src="images/icon-print.svg" alt="">
+                              Imprimir
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" onclick="alert('Função não disponível para este protótipo.'); return false;">
+                              <img src="images/icon-send-via-sms.svg" alt="">
+                              Enviar por SMS
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" onclick="alert('Função não disponível para este protótipo.'); return false;">
+                              <img src="images/icon-send-via-email.svg" alt="">
+                              Enviar por E-mail
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="col-6">
+                      <div class="box-options">
+                        <h2 tabindex="0">
+                          <img src="images/icon-formalize-proposal.svg" alt="" class="mr-2">
+                          Formalizar
+                        </h2>
+
+                        <ul>
+                          <li>
+                            <a href="#" data-toggle="modal" data-target="#modalFormalizeDigital">
+                              <img src="images/icon-digital-contract.svg" alt="">
+                              Com Assinatura Digital
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" onclick="alert('Função não disponível para este protótipo.'); return false;">
+                              <img src="images/icon-paper-contract.svg" alt="">
+                              Por Via Física
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                  </div>
+
+
+
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </main>
+        <!-- /main -->
+
+
+      </div>
+      <!-- /content-wrapper -->
+
+    </div>
+    <!-- global-wrapper -->
+
+
+
+  </body>
+</html>

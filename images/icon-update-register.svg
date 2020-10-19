@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Group 5</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.-Dashboard" transform="translate(-1442.000000, -218.000000)">
+            <g id="Group" transform="translate(602.000000, 128.000000)">
+                <g id="Group-6-Copy-3" transform="translate(753.000000, 60.000000)">
+                    <g id="Group-5" transform="translate(87.000000, 30.000000)">
+                        <rect id="Rectangle-Copy-2" fill="#224D74" x="0" y="0" width="48" height="48"></rect>
+                        <g id="Group-4" transform="translate(13.000000, 9.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2">
+                            <path d="M21.282,30 L1.719,30 C0.769,30 0,29.231 0,28.282 L0,1.718 C0,0.769 0.769,0 1.719,0 L21.282,0 C22.231,0 23,0.769 23,1.718 L23,28.282 C23,29.231 22.231,30 21.282,30 Z" id="Stroke-1" stroke-opacity="0.32"></path>
+                            <line x1="5" y1="5.5" x2="13.5999" y2="5.5" id="Path"></line>
+                            <line x1="5" y1="10" x2="17.8660198" y2="10" id="Path-Copy"></line>
+                            <line x1="5" y1="15" x2="9.8699" y2="15" id="Path-Copy-2"></line>
+                            <line x1="5" y1="20" x2="13.5999" y2="20" id="Path-Copy-3"></line>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

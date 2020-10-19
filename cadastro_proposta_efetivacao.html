@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<!-- <html lang="pt-br"> -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- <meta http-equiv="Content-Language" content="pt-br"> -->
+
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- https://igorescobar.github.io/jQuery-Mask-Plugin/ -->
+    <script src="javascripts/jquery.mask.min.js"></script>
+
+    <!-- Calendar picker -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $(function() {
+      $("#datepicker1").datepicker({
+        dateFormat: "dd/mm/yy",
+        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+        nextText: 'Próximo',
+        prevText: 'Anterior'
+      });
+    });
+    </script>
+
+    <script src="javascripts/functions.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="stylesheets/general.css">
+
+    <title>ViaCerta Protótipo</title>
+  </head>
+  <body>
+
+
+
+    <!-- Modal Edit -->
+    <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div> -->
+
+          <div class="modal-body">
+            <div class="text-center">
+              <img class="mb-3 mt-4" src="images/icon-modal-warning.svg" alt="">
+              <div class="txt-lg">
+                A edição destes dados fará com que a<br>
+                <strong>pré-proposta seja reavaliada</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer modal-footer--centered">
+            <button type="button" class="btn mb-2 btn-lg btn-dark" style="min-width: 100px;" onclick="window.location.href = 'cadastro_proposta_pre.html';; return false;">Editar dados</button>
+            <br>
+            <button type="button" class="btn btn-light2" data-dismiss="modal">Cancelar</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div tabindex="0" class="btn-float-help" onclick="alert('Função não disponível para este protótipo.'); return false;"></div>
+
+    <!-- global-wrapper -->
+    <div class="global-wrapper">
+
+      <!-- aside-menu -->
+      <aside class="aside-menu">
+        <a class="aside-menu__home-link" href="index.html"></a>
+        <img class="aside-menu__sidenavbar-placeholder" src="images/bg-sidenav-bar.jpg" alt="">
+      </aside>
+      <!-- /aside-menu -->
+
+      <!-- content-wrapper -->
+      <div class="content-wrapper">
+
+        <!-- header-default -->
+        <header class="header-default">
+          <div class="header-default__logo">
+            <a href="index.html" data-toggle="tooltip" data-placement="bottom" title="Ir para início de ViaCerta">
+              <img src="images/logo-viacerta.svg" alt="ViaCerta">
+            </a>
+          </div>
+          <img tabindex="0" class="header-default__account" src="images/element-sidenav-bar-account.jpg" alt="Notificações | Alan Mathison">
+        </header>
+        <!-- /header-default -->
+
+
+
+        <section class="big-title big-title--with-info">
+          <h1 tabindex="0">Efetivação da Propota</h1>
+          <ul class="big-title__info">
+            <li><strong>Proposta</strong>: 846251</li>
+            <li><strong>Produto</strong>: 0001 - CP VIACERTA</li>
+          </ul>
+        </section>
+
+
+        <!-- main -->
+        <main>
+          <div class="container container--main">
+
+            <div class="row">
+              <div class="col-12">
+                <div class="card card--default-padding">
+
+                  <div class="text-center mt-1 mb-5">
+                    <img class="proposal-timeline" src="images/proposal-register-steps-3.svg" alt="Etapa atual: Inicialização">
+                  </div>
+
+                  <!-- customer-card -->
+                  <div class="customer-card">
+                    <div class="customer-card__column">
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">CPF</div>
+                        442.223.782-22
+                      </div>
+                      <div class="customer-card__cell cell-to-hide">
+                        <div class="customer-card__cell__label">CEP</div>
+                        24255-000
+                      </div>
+                      <div class="customer-card__cell cell-to-hide">
+                        <div class="customer-card__cell__label">Grau de Instrução</div>
+                        Superior Incompleto
+                      </div>
+                    </div>
+
+                    <div class="customer-card__column">
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">Nome</div>
+                        Rafael Almeida Soares
+                      </div>
+                      <div class="customer-card__cell cell-to-hide">
+                        <div class="customer-card__cell__label">Tipo de Residência</div>
+                        Mora com família
+                      </div>
+                      <div class="customer-card__cell cell-to-hide">
+                        <div class="customer-card__cell__label">Classe Profissional</div>
+                        Assalariado
+                      </div>
+                    </div>
+
+                    <div class="customer-card__column">
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">Celular</div>
+                        (61) 98820-3232
+                      </div>
+                      <div class="customer-card__cell cell-to-hide">
+                        <div class="customer-card__cell__label">Estado Civil</div>
+                        Casado
+                      </div>
+                      <div class="customer-card__cell cell-to-hide">
+                        <div class="customer-card__cell__label">Renda Bruta</div>
+                        R$ 4.500
+                      </div>
+                    </div>
+
+                    <div class="customer-card__column">
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">Limite Solicitado</div>
+                        R$ 3.000
+                      </div>
+                      <div class="customer-card__cell cell-to-hide">
+                        <div class="customer-card__cell__label">Dependentes</div>
+                        1
+                      </div>
+                      <div class="customer-card__cell cell-to-hide">
+                        <div class="customer-card__cell__label">Atividade Desde</div>
+                        09/2018
+                      </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <button type="submit" class="btn btn-lg btn-secondaryc cell-to-hide" data-toggle="modal" data-target="#modalEdit">
+                      <img src="images/icon-editar.svg" class="mr-1" alt="">
+                      Editar
+                    </button>
+
+                    <div class="customer-card__view-more">Ver mais</div>
+                  </div>
+                  <!-- /customer-card -->
+
+
+                  <form autocomplete="off" id="proposalForm" onsubmit="window.location.href = 'cadastro_proposta_formalizacao.html'; return false;">
+                    <div class="row justify-content-center">
+                      <div class="col-8">
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalValue" required>Valor da Compra</label>
+                              <div class="input-currency">
+                                <input value-type="currency" autocomplete="off" required type="text" class="form-control" id="proposalValue" value="3000">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="special-box-info">
+                              Valor aprovado:<br>
+                              <strong>R$ 3.000</strong>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalPlan" required>Plano</label>
+                              <input autocomplete="off" type="text" class="form-control" id="proposalPlan" value="Crédito Pessoal 1" readonly>
+                              <!-- <select class="form-control" id="proposalPlan">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="Crédito Pessoal 1" selected>Crédito Pessoal 1</option>
+                                <option value="Crédito Pessoal 2">Crédito Pessoal 2</option>
+                              </select> -->
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalDeadline" required>Prazo</label>
+                              <select class="form-control" id="proposalDeadline" required>
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="3">3 parcelas</option>
+                                <option value="6" selected>6 parcelas</option>
+                                <option value="9">9 parcelas</option>
+                                <option value="12">12 parcelas</option>
+                                <option value="15">15 parcelas</option>
+                                <option value="18">18 parcelas</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalFirstPayment" required>Data do 1º Pagamento</label>
+                              <input id="datepicker1" value-type="date" autocomplete="off" autocomplete="off" type="text" placeholder="__/__/____" value="06/06/2020" class="form-control" id="proposalFirstPayment" required>
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalPartialPayment">Valor da Parcela</label>
+                              <input autocomplete="off" autocomplete="off" type="text" class="form-control" id="proposalPartialPayment" value="R$ 400" readonly>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- <div class="divider"></div>
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalPaymentMethod" required>Forma de Pagamento</label>
+                              <select class="form-control" id="proposalPaymentMethod" required>
+                                <option value="" disabled selected>Selecione</option>
+                                <option>Boleto Bancário</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6">
+                          </div>
+                        </div> -->
+
+                        <div class="divider"></div>
+
+                        <div class="row mb-4">
+                          <div class="col-12">
+                            <div class="form-group">
+                              <label for="proposalDeliveryType" required>Forma de Liberação</label>
+                              <select class="form-control" id="proposalDeliveryType" name="proposalDeliveryType" required>
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="banking_account">Liberação em Conta Bancária</option>
+                                <option value="payment_order">Liberação por Ordem de Pagamento</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <!-- delivery-type="banking_account" -->
+                        <section delivery-type="banking_account" class="mb-4" style="display: none;">
+                          <div class="row">
+                            <div class="col-12">
+                              <h2 tabindex="0" class="mt-0">Dados da Conta Bancária</h2>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label for="proposalBank" required>Banco</label>
+                                <select class="form-control" id="proposalBank">
+                                  <option value="" disabled selected>Selecione</option>
+                                  <option>246 Banco ABC Brasil S.A.</option>
+                                  <option>748 Banco Cooperativo Sicredi S.A.</option>
+                                  <option>237 Banco Bradesco S.A.</option>
+                                  <option>739 Banco Cetelem S.A.</option>
+                                  <option>707 Banco Daycoval S.A.</option>
+                                  <option>001 Banco do Brasil S.A.</option>
+                                  <option>041 Banco do Estado do Rio Grande do Sul S.A.</option>
+                                  <option>184 Banco Itaú BBA S.A.</option>
+                                  <option>007 Banco Nacional de Desenvolvimento Econômico e Social – BNDES</option>
+                                  <option>623 Banco PAN S.A.</option>
+                                  <option>033 Banco Santander (Brasil) S.A.</option>
+                                  <option>104 Caixa Econômica Federal</option>
+                                  <!-- <option>ADVANCED CC LTDA</option>
+                                  <option>ALBATROSS CCV S.A</option>
+                                  <option>ATIVA S.A. INVESTIMENTOS CCTVM</option>
+                                  <option>B&T CC LTDA.</option>
+                                  <option>BANCO A. J. RENNER S.A.</option>
+                                  <option>BANCO ABC BRASIL S.A.-Reg Sudeste</option>
+                                  <option>BANCO ABN AMRO S.A.</option>
+                                  <option>BANCO AGIBANK S.A.</option>
+                                  <option>BANCO ALFA S.A.</option>
+                                  <option>BANCO ARBI S.A.</option>
+                                  <option>BANCO AZTECA DO BRASIL S.A.</option>
+                                  <option>BANCO BARCLAYS S.A.</option>
+                                  <option>BANCO BBM S.A.</option>
+                                  <option>BANCO BGN S.A.</option>
+                                  <option>BANCO BMFBOVESPA DE SERVIÇOS DE LIQUIDAÇO</option>
+                                  <option>BANCO BMG S.A.</option>
+                                  <option>BANCO BNP PARIBAS BRASIL S.A.</option>
+                                  <option>BANCO BOAVISTA INTERATLÂNTICO S.A.</option>
+                                  <option>BANCO BONSUCESSO S.A.</option>
+                                  <option>BANCO BRACCE S.A.</option>
+                                  <option>BANCO BRADESCO S.A.</option>
+                                  <option>BANCO BTG PACTUAL S.A.</option>
+                                  <option>BANCO C6 SA</option>
+                                  <option>BANCO CACIQUE S. A.</option>
+                                  <option>BANCO CAIXA GERAL - BRASIL S.A.</option>
+                                  <option>BANCO CAPITAL S. A.</option>
+                                  <option>BANCO CARGILL S.A.</option>
+                                  <option>BANCO CÉDULA S.A.</option>
+                                  <option>BANCO CIFRA S.A.</option>
+                                  <option>BANCO CITIBANK S.A.</option>
+                                  <option>BANCO CLÁSSICO S.A.</option>
+                                  <option>BANCO COOPERATIVO DO BRASIL S/A - SICOOB</option>
+                                  <option>BANCO COOPERATIVO SICREDI S. A.</option>
+                                  <option>BANCO CREDIT AGRÍCOLE BRASIL S.A.</option>
+                                  <option>BANCO CREDIT SUISSE (BRASIL) S.A.</option>
+                                  <option>BANCO DA AMAZONIA S.A.</option>
+                                  <option>BANCO DA CHINA BRASIL S.A.</option>
+                                  <option>BANCO DAYCOVAL S.A.</option>
+                                  <option>BANCO DE BRASÍLIA S.A.</option>
+                                  <option>BANCO DE LA NACION ARGENTINA</option>
+                                  <option>BANCO DE LA PROVINCIA DE BUENOS AIRES</option>
+                                  <option>BANCO DE LA REPUBLICA ORIENTAL DEL URUGU</option>
+                                  <option>BANCO DE TOKYO-MITSUBISHI UFJ BRASIL S.A</option>
+                                  <option>BANCO DIBENS S.A.</option>
+                                  <option>BANCO DO BRASIL S.A.</option>
+                                  <option>BANCO DO ESTADO DE SERGIPE S.A.</option>
+                                  <option>BANCO DO ESTADO DO PARA S.A.</option>
+                                  <option>BANCO DO ESTADO DO RIO GRANDE DO SUL S.A</option>
+                                  <option>BANCO DO NORDESTE DO BRASIL S.A.</option>
+                                  <option>BANCO FATOR S.A.</option>
+                                  <option>BANCO FIBRA S.A.</option>
+                                  <option>BANCO FICSA S. A.</option>
+                                  <option>BANCO GUANABARA S.A.</option>
+                                  <option>BANCO INBURSA</option>
+                                  <option>BANCO INDUSTRIAL DO BRASIL S.A.</option>
+                                  <option>BANCO INDUSTRIAL E COMERCIAL S. A.</option>
+                                  <option>BANCO INDUSVAL S. A.</option>
+                                  <option>BANCO INTERCAP S.A.</option>
+                                  <option>BANCO INTERMEDIUM S.A.</option>
+                                  <option>BANCO INVESTCRED UNIBANCO S.A.</option>
+                                  <option>BANCO J. P. MORGAN S. A.</option>
+                                  <option>BANCO J. SAFRA S.A.</option>
+                                  <option>BANCO JOHN DEERE S.A.</option>
+                                  <option>BANCO KDB DO BRASIL S.A.</option>
+                                  <option>BANCO KEB DO BRASIL S. A.</option>
+                                  <option>BANCO LUSO BRASILEIRO S.A.</option>
+                                  <option>BANCO MÁXIMA S.A.</option>
+                                  <option>BANCO MERCANTIL DO BRASIL S.A.</option>
+                                  <option>BANCO MIZUHO DO BRASIL S.A.</option>
+                                  <option>BANCO MODAL S.A.</option>
+                                  <option>BANCO MORGAN STANLEY S. A.</option>
+                                  <option>BANCO ORIGINAL DO AGRONEGÓCIO S.A.</option>
+                                  <option>BANCO ORIGINAL S.A.</option>
+                                  <option>BANCO PANAMERICANO S.A.</option>
+                                  <option>BANCO PAULISTA S.A.</option>
+                                  <option>BANCO PECÚNIA S. A.</option>
+                                  <option>BANCO PETRA S.A.</option>
+                                  <option>BANCO PINE S.A.</option>
+                                  <option>BANCO POTTENCIAL S.A.</option>
+                                  <option>BANCO RABOBANK INTERNATIONAL BRASIL S.A.</option>
+                                  <option>BANCO RANDON S.A.</option>
+                                  <option>BANCO RENDIMENTO S.A.</option>
+                                  <option>BANCO RIBEIRÃO PRETO S.A.</option>
+                                  <option>BANCO RODOBENS SA</option>
+                                  <option>BANCO SAFRA S.A.</option>
+                                  <option>BANCO SANTANDER (BRASIL) S. A.</option>
+                                  <option>BANCO SEMEAR S.A.</option>
+                                  <option>BANCO SISTEMA</option>
+                                  <option>BANCO SOCIÉTÉ GÉNÉRALE BRASIL S.A.</option>
+                                  <option>BANCO SOFISA S. A.</option>
+                                  <option>BANCO SUMITOMO MITSUI BRASILEIRO S.A.</option>
+                                  <option>BANCO TOPAZIO S.A.</option>
+                                  <option>BANCO TRIÂNGULO S.A.</option>
+                                  <option>BANCO VOTORANTIM S.A.</option>
+                                  <option>BANCO VR S.A.</option>
+                                  <option>BANCO WESTERN UNION DO BRASIL SA</option>
+                                  <option>BANCO WOORI BANK DO BRASIL S.A</option>
+                                  <option>BANESTES S.A. BANCO DO ESTADO DO ESPÍRIT</option>
+                                  <option>BANIF - BCO INTERNACIONAL DO FUNCHAL (BR</option>
+                                  <option>BANK OF AMERICA MERRILL LYNCH BANCO MÚLT</option>
+                                  <option>BARIGUI CH</option>
+                                  <option>BBN BANCO BRASILEIRO DE NEGOCIOS S.A.</option>
+                                  <option>BCO ALVORADA S.A.</option>
+                                  <option>BCO BANDEPE S.A.</option>
+                                  <option>BCO BBI S.A.</option>
+                                  <option>BCO BRADESCO BERJ S.A.</option>
+                                  <option>BCO BRADESCO CARTOES S.A.</option>
+                                  <option>BCO BRADESCO FINANC. S.A.</option>
+                                  <option>BCO CONFIDENCE DE CAMBIO S.A.</option>
+                                  <option>BCO OL BONSUCESSO CONSIGNADO S.A.</option>
+                                  <option>BCO OURINVEST S.A.</option>
+                                  <option>BCO TRICURY S.A.</option>
+                                  <option>BCV - BANCO DE CRÉDITO E VAREJO S/A</option>
+                                  <option>BES INVESTIMENTO DO BRASIL S.A</option>
+                                  <option>BEXS BCO DE CAMBIO S.A.</option>
+                                  <option>BEXS CC S.A.</option>
+                                  <option>BGC LIQUIDEZ DTVM LTDA</option>
+                                  <option>BNDES</option>
+                                  <option>BNY MELLON BANCO S.A.</option>
+                                  <option>BPN BRASIL BANCO MÚLTIPLO S.A.</option>
+                                  <option>BR PARTNERS BI</option>
+                                  <option>BRASIL PLURAL S.A. BANCO MÚLTIPLO</option>
+                                  <option>BRICKELL S.A. CRÉDITO, FINANCIAMENTO E I</option>
+                                  <option>BRL TRUST DTVM SA</option>
+                                  <option>BROKER BRASIL CC LTDA.</option>
+                                  <option>C.SUISSE HEDGING-GRIFFO CV S/A</option>
+                                  <option>CAIXA ECONOMICA FEDERAL</option>
+                                  <option>CARUANA SCFI</option>
+                                  <option>CASA CREDITO S.A. SCM</option>
+                                  <option>CCM DESP TRANS SC E RS</option>
+                                  <option>CENTRAL DAS COOPERATIVAS ESPIRITO SANTO</option>
+                                  <option>CITIBANK N.A.</option>
+                                  <option>CM CAPITAL MARKETS CCTVM LTDA</option>
+                                  <option>CODEPE CVC S.A.</option>
+                                  <option>COMMERZBANK BRASIL S.A. - BCO MULTIPLO</option>
+                                  <option>CONFEDERACAO NAC COOP UNICREDS</option>
+                                  <option>CONFESOL-CONF COOP.CRD ECON.FAM SOL</option>
+                                  <option>CONFIDENCE CC S.A.</option>
+                                  <option>COOP CENTRAL DE CRÉDITO - CENTRALCREDI</option>
+                                  <option>COOP CENTRAL DE CRÉDITO URBANO-CECRED</option>
+                                  <option>COOPERATIVA CENTRAL DE CRÉDITO DO ESTADO</option>
+                                  <option>COOPERATIVA CENTRAL DE ECONOMIA E CRÉDIT</option>
+                                  <option>COOPERATIVA DE CRÉDITO RURAL DA REGIÃO D</option>
+                                  <option>CREDIALIANÇA COOPERATIVA DE CRÉDITO RURA</option>
+                                  <option>CREDICOAMO CRÉDITO RURAL COOPERATIVA</option>
+                                  <option>DACASA FINANCEIRA S/A - SCFI</option>
+                                  <option>DEUTSCHE BANK S.A. - BANCO ALEMÃO</option>
+                                  <option>EASYNVEST - TOTULO CV SA</option>
+                                  <option>FACTA S.A. CFI</option>
+                                  <option>FAIR CC S.A.</option>
+                                  <option>GET MONEY CC LTDA</option>
+                                  <option>GOLDMAN SACHS DO BRASIL BM S.A</option>
+                                  <option>GRADUAL CCTVM S.A.</option>
+                                  <option>GUIDE</option>
+                                  <option>GUITTA CC LTDA</option>
+                                  <option>HIPERCARD BANCO MULTIPLO S.A.</option>
+                                  <option>HS FINANCEIRA</option>
+                                  <option>HSBC BANCO DE INVESTIMENTO</option>
+                                  <option>HSBC BANK BRASIL S. A. - BANCO MULTIPLO</option>
+                                  <option>IB CCTVM LTDA</option>
+                                  <option>ICAP DO BRASIL CTVM LTDA.</option>
+                                  <option>ICBC DO BRASIL BANCO MÚLTIPLO S.A.</option>
+                                  <option>ING BANK N.V.</option>
+                                  <option>INTESA SANPAOLO BRASIL S.A. BM</option>
+                                  <option>ITAU UNIBANCO S.A.</option>
+                                  <option>JPMORGAN CHASE BANK</option>
+                                  <option>LECCA CFI S.A.</option>
+                                  <option>LEVYCAM CCV LTDA</option>
+                                  <option>MAGLIANO S.A. CCVM</option>
+                                  <option>MONEY PLUS/GRADENO DIGITAL</option>
+                                  <option>MS BANK S.A. BCO DE CAMBIO</option>
+                                  <option>MULTIMONEY CC LTDA.</option>
+                                  <option>NATIXIS BRASIL S.A. BM</option>
+                                  <option>NBC BANK BRASIL S. A. - BANCO MÚLTIPLO</option>
+                                  <option>NOVA FUTURA CTVM LTDA.</option>
+                                  <option>NU PAGAMENTOS S.A.</option>
+                                  <option>OLIVEIRA TRUST DTVM S.A.</option>
+                                  <option>PàLOCRED SCMEPP LTDA.</option>
+                                  <option>PARANA BANCO S. A.</option>
+                                  <option>PARMETAL DTVM LTDA</option>
+                                  <option>PERNAMBUCANAS FINANC S.A. CFI</option>
+                                  <option>PLANNER CV S.A.</option>
+                                  <option>PORTOCRED S.A. - CFI</option>
+                                  <option>RENASCENCA DTVM LTDA</option>
+                                  <option>SCOTIABANK BRASIL S.A. BANCO MÚLTIPLO</option>
+                                  <option>SENSO CCVM S.A.</option>
+                                  <option>SERVICOOP</option>
+                                  <option>SOCRED S.A. SCM</option>
+                                  <option>STANDARD CHARTERED BI S.A.</option>
+                                  <option>STONE PAGAMENTOS S.A.</option>
+                                  <option>TREVISO CC S.A.</option>
+                                  <option>TULLETT PREBON BRASIL CVC LTDA</option>
+                                  <option>UBS BRASIL BI S.A.</option>
+                                  <option>UBS BRASIL CCTVM S.A.</option>
+                                  <option>UNICRED - CENTRAL DE COOPERATIVAS</option>
+                                  <option>UNIPRIME CENTRAL – CENTRAL INTERESTADUAL</option>
+                                  <option>UNIPRIME NORTE DO PARANÁ - COOP. DE ECON</option>
+                                  <option>XP INVESTIMENTOS CCTVM S/A</option> -->
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label for="proposalBankAccountType" required>Tipo de Conta</label>
+                                <select class="form-control" id="proposalBankAccountType">
+                                  <option value="" disabled selected>Selecione</option>
+                                  <option>Conta Corrente</option>
+                                  <option>Conta Poupança</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label for="proposalBankAgency" required>Agência</label>
+                                <div>
+                                  <input autocomplete="off" autocomplete="off" type="text" class="form-control d-inline-block" id="proposalBankAgency" placeholder="Agência" style="width: calc(100% - 100px); margin-right: 8px;">
+                                  <input autocomplete="off" autocomplete="off" type="text" class="form-control d-inline-block" id="proposalBankAgencyDigit" placeholder="Dígito" style="width: 88px;">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label for="proposalBankAccountNumber" required>Número da Conta</label>
+                                <div>
+                                  <input autocomplete="off" autocomplete="off" type="text" class="form-control d-inline-block" id="proposalBankAccountNumber" placeholder="Número da Conta" style="width: calc(100% - 100px); margin-right: 8px;">
+                                  <input autocomplete="off" autocomplete="off" type="text" class="form-control d-inline-block" id="proposalBankAccountNumberDigit" placeholder="Dígito" style="width: 88px;">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+
+                        </section>
+                        <!-- /delivery-type="banking_account" -->
+
+
+                        <!-- delivery-type="payment_order" -->
+                        <section delivery-type="payment_order" class="mb-4" style="display: none;">
+                          <div class="row">
+                            <div class="col-12">
+                              <h2 tabindex="0" class="mt-0">Dados para Ordem de Pagamento</h2>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label for="proposalPaymentOrder" required>Banco</label>
+                                <select class="form-control" id="proposalPaymentOrder">
+                                  <option value="" disabled selected>Selecione</option>
+                                  <!-- <option>246 Banco ABC Brasil S.A.</option>
+                                  <option>748 Banco Cooperativo Sicredi S.A.</option>
+                                  <option>237 Banco Bradesco S.A.</option>
+                                  <option>739 Banco Cetelem S.A.</option>
+                                  <option>707 Banco Daycoval S.A.</option>
+                                  <option>001 Banco do Brasil S.A.</option>
+                                  <option>041 Banco do Estado do Rio Grande do Sul S.A.</option>
+                                  <option>184 Banco Itaú BBA S.A.</option>
+                                  <option>007 Banco Nacional de Desenvolvimento Econômico e Social – BNDES</option>
+                                  <option>623 Banco PAN S.A.</option>
+                                  <option>033 Banco Santander (Brasil) S.A.</option> -->
+                                  <option>104 Caixa Econômica Federal</option>
+                                  <!-- <option>ADVANCED CC LTDA</option>
+                                  <option>ALBATROSS CCV S.A</option>
+                                  <option>ATIVA S.A. INVESTIMENTOS CCTVM</option>
+                                  <option>B&T CC LTDA.</option>
+                                  <option>BANCO A. J. RENNER S.A.</option>
+                                  <option>BANCO ABC BRASIL S.A.-Reg Sudeste</option>
+                                  <option>BANCO ABN AMRO S.A.</option>
+                                  <option>BANCO AGIBANK S.A.</option>
+                                  <option>BANCO ALFA S.A.</option>
+                                  <option>BANCO ARBI S.A.</option>
+                                  <option>BANCO AZTECA DO BRASIL S.A.</option>
+                                  <option>BANCO BARCLAYS S.A.</option>
+                                  <option>BANCO BBM S.A.</option>
+                                  <option>BANCO BGN S.A.</option>
+                                  <option>BANCO BMFBOVESPA DE SERVIÇOS DE LIQUIDAÇO</option>
+                                  <option>BANCO BMG S.A.</option>
+                                  <option>BANCO BNP PARIBAS BRASIL S.A.</option>
+                                  <option>BANCO BOAVISTA INTERATLÂNTICO S.A.</option>
+                                  <option>BANCO BONSUCESSO S.A.</option>
+                                  <option>BANCO BRACCE S.A.</option>
+                                  <option>BANCO BRADESCO S.A.</option>
+                                  <option>BANCO BTG PACTUAL S.A.</option>
+                                  <option>BANCO C6 SA</option>
+                                  <option>BANCO CACIQUE S. A.</option>
+                                  <option>BANCO CAIXA GERAL - BRASIL S.A.</option>
+                                  <option>BANCO CAPITAL S. A.</option>
+                                  <option>BANCO CARGILL S.A.</option>
+                                  <option>BANCO CÉDULA S.A.</option>
+                                  <option>BANCO CIFRA S.A.</option>
+                                  <option>BANCO CITIBANK S.A.</option>
+                                  <option>BANCO CLÁSSICO S.A.</option>
+                                  <option>BANCO COOPERATIVO DO BRASIL S/A - SICOOB</option>
+                                  <option>BANCO COOPERATIVO SICREDI S. A.</option>
+                                  <option>BANCO CREDIT AGRÍCOLE BRASIL S.A.</option>
+                                  <option>BANCO CREDIT SUISSE (BRASIL) S.A.</option>
+                                  <option>BANCO DA AMAZONIA S.A.</option>
+                                  <option>BANCO DA CHINA BRASIL S.A.</option>
+                                  <option>BANCO DAYCOVAL S.A.</option>
+                                  <option>BANCO DE BRASÍLIA S.A.</option>
+                                  <option>BANCO DE LA NACION ARGENTINA</option>
+                                  <option>BANCO DE LA PROVINCIA DE BUENOS AIRES</option>
+                                  <option>BANCO DE LA REPUBLICA ORIENTAL DEL URUGU</option>
+                                  <option>BANCO DE TOKYO-MITSUBISHI UFJ BRASIL S.A</option>
+                                  <option>BANCO DIBENS S.A.</option>
+                                  <option>BANCO DO BRASIL S.A.</option>
+                                  <option>BANCO DO ESTADO DE SERGIPE S.A.</option>
+                                  <option>BANCO DO ESTADO DO PARA S.A.</option>
+                                  <option>BANCO DO ESTADO DO RIO GRANDE DO SUL S.A</option>
+                                  <option>BANCO DO NORDESTE DO BRASIL S.A.</option>
+                                  <option>BANCO FATOR S.A.</option>
+                                  <option>BANCO FIBRA S.A.</option>
+                                  <option>BANCO FICSA S. A.</option>
+                                  <option>BANCO GUANABARA S.A.</option>
+                                  <option>BANCO INBURSA</option>
+                                  <option>BANCO INDUSTRIAL DO BRASIL S.A.</option>
+                                  <option>BANCO INDUSTRIAL E COMERCIAL S. A.</option>
+                                  <option>BANCO INDUSVAL S. A.</option>
+                                  <option>BANCO INTERCAP S.A.</option>
+                                  <option>BANCO INTERMEDIUM S.A.</option>
+                                  <option>BANCO INVESTCRED UNIBANCO S.A.</option>
+                                  <option>BANCO J. P. MORGAN S. A.</option>
+                                  <option>BANCO J. SAFRA S.A.</option>
+                                  <option>BANCO JOHN DEERE S.A.</option>
+                                  <option>BANCO KDB DO BRASIL S.A.</option>
+                                  <option>BANCO KEB DO BRASIL S. A.</option>
+                                  <option>BANCO LUSO BRASILEIRO S.A.</option>
+                                  <option>BANCO MÁXIMA S.A.</option>
+                                  <option>BANCO MERCANTIL DO BRASIL S.A.</option>
+                                  <option>BANCO MIZUHO DO BRASIL S.A.</option>
+                                  <option>BANCO MODAL S.A.</option>
+                                  <option>BANCO MORGAN STANLEY S. A.</option>
+                                  <option>BANCO ORIGINAL DO AGRONEGÓCIO S.A.</option>
+                                  <option>BANCO ORIGINAL S.A.</option>
+                                  <option>BANCO PANAMERICANO S.A.</option>
+                                  <option>BANCO PAULISTA S.A.</option>
+                                  <option>BANCO PECÚNIA S. A.</option>
+                                  <option>BANCO PETRA S.A.</option>
+                                  <option>BANCO PINE S.A.</option>
+                                  <option>BANCO POTTENCIAL S.A.</option>
+                                  <option>BANCO RABOBANK INTERNATIONAL BRASIL S.A.</option>
+                                  <option>BANCO RANDON S.A.</option>
+                                  <option>BANCO RENDIMENTO S.A.</option>
+                                  <option>BANCO RIBEIRÃO PRETO S.A.</option>
+                                  <option>BANCO RODOBENS SA</option>
+                                  <option>BANCO SAFRA S.A.</option>
+                                  <option>BANCO SANTANDER (BRASIL) S. A.</option>
+                                  <option>BANCO SEMEAR S.A.</option>
+                                  <option>BANCO SISTEMA</option>
+                                  <option>BANCO SOCIÉTÉ GÉNÉRALE BRASIL S.A.</option>
+                                  <option>BANCO SOFISA S. A.</option>
+                                  <option>BANCO SUMITOMO MITSUI BRASILEIRO S.A.</option>
+                                  <option>BANCO TOPAZIO S.A.</option>
+                                  <option>BANCO TRIÂNGULO S.A.</option>
+                                  <option>BANCO VOTORANTIM S.A.</option>
+                                  <option>BANCO VR S.A.</option>
+                                  <option>BANCO WESTERN UNION DO BRASIL SA</option>
+                                  <option>BANCO WOORI BANK DO BRASIL S.A</option>
+                                  <option>BANESTES S.A. BANCO DO ESTADO DO ESPÍRIT</option>
+                                  <option>BANIF - BCO INTERNACIONAL DO FUNCHAL (BR</option>
+                                  <option>BANK OF AMERICA MERRILL LYNCH BANCO MÚLT</option>
+                                  <option>BARIGUI CH</option>
+                                  <option>BBN BANCO BRASILEIRO DE NEGOCIOS S.A.</option>
+                                  <option>BCO ALVORADA S.A.</option>
+                                  <option>BCO BANDEPE S.A.</option>
+                                  <option>BCO BBI S.A.</option>
+                                  <option>BCO BRADESCO BERJ S.A.</option>
+                                  <option>BCO BRADESCO CARTOES S.A.</option>
+                                  <option>BCO BRADESCO FINANC. S.A.</option>
+                                  <option>BCO CONFIDENCE DE CAMBIO S.A.</option>
+                                  <option>BCO OL BONSUCESSO CONSIGNADO S.A.</option>
+                                  <option>BCO OURINVEST S.A.</option>
+                                  <option>BCO TRICURY S.A.</option>
+                                  <option>BCV - BANCO DE CRÉDITO E VAREJO S/A</option>
+                                  <option>BES INVESTIMENTO DO BRASIL S.A</option>
+                                  <option>BEXS BCO DE CAMBIO S.A.</option>
+                                  <option>BEXS CC S.A.</option>
+                                  <option>BGC LIQUIDEZ DTVM LTDA</option>
+                                  <option>BNDES</option>
+                                  <option>BNY MELLON BANCO S.A.</option>
+                                  <option>BPN BRASIL BANCO MÚLTIPLO S.A.</option>
+                                  <option>BR PARTNERS BI</option>
+                                  <option>BRASIL PLURAL S.A. BANCO MÚLTIPLO</option>
+                                  <option>BRICKELL S.A. CRÉDITO, FINANCIAMENTO E I</option>
+                                  <option>BRL TRUST DTVM SA</option>
+                                  <option>BROKER BRASIL CC LTDA.</option>
+                                  <option>C.SUISSE HEDGING-GRIFFO CV S/A</option>
+                                  <option>CAIXA ECONOMICA FEDERAL</option>
+                                  <option>CARUANA SCFI</option>
+                                  <option>CASA CREDITO S.A. SCM</option>
+                                  <option>CCM DESP TRANS SC E RS</option>
+                                  <option>CENTRAL DAS COOPERATIVAS ESPIRITO SANTO</option>
+                                  <option>CITIBANK N.A.</option>
+                                  <option>CM CAPITAL MARKETS CCTVM LTDA</option>
+                                  <option>CODEPE CVC S.A.</option>
+                                  <option>COMMERZBANK BRASIL S.A. - BCO MULTIPLO</option>
+                                  <option>CONFEDERACAO NAC COOP UNICREDS</option>
+                                  <option>CONFESOL-CONF COOP.CRD ECON.FAM SOL</option>
+                                  <option>CONFIDENCE CC S.A.</option>
+                                  <option>COOP CENTRAL DE CRÉDITO - CENTRALCREDI</option>
+                                  <option>COOP CENTRAL DE CRÉDITO URBANO-CECRED</option>
+                                  <option>COOPERATIVA CENTRAL DE CRÉDITO DO ESTADO</option>
+                                  <option>COOPERATIVA CENTRAL DE ECONOMIA E CRÉDIT</option>
+                                  <option>COOPERATIVA DE CRÉDITO RURAL DA REGIÃO D</option>
+                                  <option>CREDIALIANÇA COOPERATIVA DE CRÉDITO RURA</option>
+                                  <option>CREDICOAMO CRÉDITO RURAL COOPERATIVA</option>
+                                  <option>DACASA FINANCEIRA S/A - SCFI</option>
+                                  <option>DEUTSCHE BANK S.A. - BANCO ALEMÃO</option>
+                                  <option>EASYNVEST - TOTULO CV SA</option>
+                                  <option>FACTA S.A. CFI</option>
+                                  <option>FAIR CC S.A.</option>
+                                  <option>GET MONEY CC LTDA</option>
+                                  <option>GOLDMAN SACHS DO BRASIL BM S.A</option>
+                                  <option>GRADUAL CCTVM S.A.</option>
+                                  <option>GUIDE</option>
+                                  <option>GUITTA CC LTDA</option>
+                                  <option>HIPERCARD BANCO MULTIPLO S.A.</option>
+                                  <option>HS FINANCEIRA</option>
+                                  <option>HSBC BANCO DE INVESTIMENTO</option>
+                                  <option>HSBC BANK BRASIL S. A. - BANCO MULTIPLO</option>
+                                  <option>IB CCTVM LTDA</option>
+                                  <option>ICAP DO BRASIL CTVM LTDA.</option>
+                                  <option>ICBC DO BRASIL BANCO MÚLTIPLO S.A.</option>
+                                  <option>ING BANK N.V.</option>
+                                  <option>INTESA SANPAOLO BRASIL S.A. BM</option>
+                                  <option>ITAU UNIBANCO S.A.</option>
+                                  <option>JPMORGAN CHASE BANK</option>
+                                  <option>LECCA CFI S.A.</option>
+                                  <option>LEVYCAM CCV LTDA</option>
+                                  <option>MAGLIANO S.A. CCVM</option>
+                                  <option>MONEY PLUS/GRADENO DIGITAL</option>
+                                  <option>MS BANK S.A. BCO DE CAMBIO</option>
+                                  <option>MULTIMONEY CC LTDA.</option>
+                                  <option>NATIXIS BRASIL S.A. BM</option>
+                                  <option>NBC BANK BRASIL S. A. - BANCO MÚLTIPLO</option>
+                                  <option>NOVA FUTURA CTVM LTDA.</option>
+                                  <option>NU PAGAMENTOS S.A.</option>
+                                  <option>OLIVEIRA TRUST DTVM S.A.</option>
+                                  <option>PàLOCRED SCMEPP LTDA.</option>
+                                  <option>PARANA BANCO S. A.</option>
+                                  <option>PARMETAL DTVM LTDA</option>
+                                  <option>PERNAMBUCANAS FINANC S.A. CFI</option>
+                                  <option>PLANNER CV S.A.</option>
+                                  <option>PORTOCRED S.A. - CFI</option>
+                                  <option>RENASCENCA DTVM LTDA</option>
+                                  <option>SCOTIABANK BRASIL S.A. BANCO MÚLTIPLO</option>
+                                  <option>SENSO CCVM S.A.</option>
+                                  <option>SERVICOOP</option>
+                                  <option>SOCRED S.A. SCM</option>
+                                  <option>STANDARD CHARTERED BI S.A.</option>
+                                  <option>STONE PAGAMENTOS S.A.</option>
+                                  <option>TREVISO CC S.A.</option>
+                                  <option>TULLETT PREBON BRASIL CVC LTDA</option>
+                                  <option>UBS BRASIL BI S.A.</option>
+                                  <option>UBS BRASIL CCTVM S.A.</option>
+                                  <option>UNICRED - CENTRAL DE COOPERATIVAS</option>
+                                  <option>UNIPRIME CENTRAL – CENTRAL INTERESTADUAL</option>
+                                  <option>UNIPRIME NORTE DO PARANÁ - COOP. DE ECON</option>
+                                  <option>XP INVESTIMENTOS CCTVM S/A</option> -->
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label for="proposalPaymentOrderBankAgency" required>Agência</label>
+                                <div>
+                                  <input autocomplete="off" autocomplete="off" type="text" class="form-control d-inline-block" id="proposalPaymentOrderBankAgency" placeholder="Agência" style="width: calc(100% - 100px); margin-right: 8px;">
+                                  <input autocomplete="off" autocomplete="off" type="text" class="form-control d-inline-block" id="proposalPaymentOrderBankAgencyDigit" placeholder="Dígito" style="width: 88px;">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label for="proposalPaymentOrderCity" required>Cidade</label>
+                                <input autocomplete="off" autocomplete="off" type="text" class="form-control" id="proposalPaymentOrderCity" placeholder="Cidade" readonly>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label for="proposalPaymentOrderNeighborhood" required>Bairro</label>
+                                <input autocomplete="off" autocomplete="off" type="text" class="form-control" id="proposalPaymentOrderNeighborhood" placeholder="Bairro" readonly>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- <div class="row">
+                            <div class="col-12">
+                              <div class="form-group">
+                                <label for="proposalPaymentOrderAddress">Endereço Completo</label>
+                                <input autocomplete="off" autocomplete="off" type="text" class="form-control" id="proposalPaymentOrderAddress" placeholder="Rua, Número, CEP...">
+                              </div>
+                            </div>
+                          </div> -->
+
+                        </section>
+                        <!-- /delivery-type="banking_account" -->
+
+
+                      </div>
+                    </div>
+
+
+                    <div class="row justify-content-center">
+                      <div class="col-8">
+                        <button style="float: right;" type="submit" class="btn btn-lg btn-primary">Efetivar</button>
+                        <button style="float: left;" type="submit" class="btn btn-lg btn-secondaryb" onclick="if (confirm('Tem certeza de que deseja descartar o que foi preenchido?\nA proposta não será perdida.')) { window.location.href = 'consultar_propostas.html'; } return false;">Cancelar</button>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </main>
+        <!-- /main -->
+
+
+      </div>
+      <!-- /content-wrapper -->
+
+    </div>
+    <!-- global-wrapper -->
+
+
+
+    <script>
+    $(document).ready(function () {
+
+      // $('[value-type="currency"]').mask('#.##0,00', {reverse: true});
+      $('[value-type="currency"]').mask('#.##0', {reverse: true});
+      $('[value-type="date"]').mask('00/00/0000');
+
+      // $('[value-type="currency"]').keyup(function() {
+      //   var inputValue = $(this).val();
+      //   $(this).val('R$ ' + inputValue);
+      // });
+
+      updatedPartialPayment();
+
+      $('[name="proposalDeliveryType"]').on('change', function() {
+        var deliveryType = $(this).val();
+        $('[delivery-type]').hide();
+        $('[delivery-type="' + deliveryType + '"]').fadeIn();
+      });
+
+      $('#proposalDeadline').change(function() {
+        updatedPartialPayment();
+      })
+
+      $('#proposalValue').change(function() {
+        updatedPartialPayment();
+      })
+
+      function updatedPartialPayment() {
+        var proposalValue = $('#proposalValue').val();
+        var proposalValueTreated = proposalValue.replace(/\./g, "").replace(/\,/g, ".");
+
+        if (proposalValueTreated > 3000) {
+          alert('Informe um valor menor ou igual ao valor aprovado de R$ 3.000');
+          $('#proposalValue').val('3.000');
+          return false;
+        }
+
+        var number = $('#proposalDeadline').val();
+        var total = (proposalValueTreated / number).toFixed(2);
+        var totalBr = total.replace(".", ",");
+        $('#proposalPartialPayment').val("R$ " + totalBr);
+      }
+
+
+
+
+      $('#proposalPaymentOrder').change(function() {
+        fillBankCityNeighborhood();
+      });
+
+      $('#proposalPaymentOrderBankAgency').keyup(function() {
+        fillBankCityNeighborhood();
+      });
+
+      $('#proposalPaymentOrderBankAgencyDigit').keyup(function() {
+        fillBankCityNeighborhood();
+      });
+
+      function fillBankCityNeighborhood () {
+        if (
+          $('#proposalPaymentOrder').val() === '' ||
+          $('#proposalPaymentOrderBankAgency').val().length === 0 ||
+          $('#proposalPaymentOrderBankAgencyDigit').val().length === 0
+        ) {
+          $('#proposalPaymentOrderCity').val('');
+          $('#proposalPaymentOrderNeighborhood').val('');
+        } else {
+          $('#proposalPaymentOrderCity').val('Santo Cristo');
+          $('#proposalPaymentOrderNeighborhood').val('Centro');
+        }
+      }
+
+
+    });
+    </script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 9</title>
+    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="6.-Inicialização-–-Cadastro-de-Proposta-&gt;-1.Pré-Proposta-&gt;-Modal-Não-Aprovado" transform="translate(-929.000000, -395.000000)">
+            <g id="Group-12" transform="translate(698.000000, 347.000000)">
+                <g id="Group-9" transform="translate(231.000000, 48.000000)">
+                    <circle id="Oval" fill="#C14949" cx="32" cy="32" r="32"></circle>
+                    <g id="Group-13" transform="translate(18.000000, 17.500000)" fill="#FFFFFF">
+                        <rect id="Rectangle" transform="translate(14.000000, 14.500000) rotate(-45.000000) translate(-14.000000, -14.500000) " x="-2" y="11" width="32" height="7" rx="2"></rect>
+                        <rect id="Rectangle" transform="translate(14.000000, 14.500000) scale(-1, 1) rotate(-45.000000) translate(-14.000000, -14.500000) " x="-2" y="11" width="32" height="7" rx="2"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

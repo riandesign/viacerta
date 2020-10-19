@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- https://igorescobar.github.io/jQuery-Mask-Plugin/ -->
+    <script src="javascripts/jquery.mask.min.js"></script>
+
+    <script src="javascripts/functions.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="stylesheets/general.css">
+
+    <title>ViaCerta Protótipo</title>
+  </head>
+  <body>
+
+
+
+
+    <!-- Modal Wait Sending Proposal -->
+    <div class="modal fade" id="modalResendCode" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="text-center">
+              <div class="txt-lg mt-4">
+                Um novo SMS foi enviado para <strong>(55) 98803-2240</strong>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer modal-footer--centered">
+            <button type="button" class="btn btn-primary pl-4 pr-4" data-dismiss="modal">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Modal Edit -->
+    <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div> -->
+
+          <div class="modal-body">
+            <div class="text-center">
+              <img class="mb-3 mt-4" src="images/icon-modal-warning.svg" alt="">
+              <div class="txt-lg">
+                A edição destes dados fará com que a<br>
+                <strong>pré-proposta seja reavaliada</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer modal-footer--centered">
+            <button type="button" class="btn mb-2 btn-lg btn-dark" style="min-width: 100px;" onclick="window.location.href = 'cadastro_proposta_pre.html';; return false;">Editar dados</button>
+            <br>
+            <button type="button" class="btn btn-light2" data-dismiss="modal">Cancelar</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Modal Wait Sending Proposal -->
+    <!-- <div class="modal fade" id="modalSending" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="text-center">
+              <img class="mb-3 mt-4" src="images/icon-modal-sending-proposal.svg" alt="">
+              <div class="txt-lg">
+                <strong>Aguarde um momento,</strong><br>
+                estamos submetendo a sua proposta...
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer modal-footer--centered">
+            <button type="button" class="btn btn-light2">Cancelar</button>
+          </div>
+
+        </div>
+      </div>
+    </div> -->
+
+
+
+
+    <div tabindex="0" class="btn-float-help" onclick="alert('Função não disponível para este protótipo.'); return false;"></div>
+
+    <!-- global-wrapper -->
+    <div class="global-wrapper">
+
+      <!-- aside-menu -->
+      <aside class="aside-menu">
+        <a class="aside-menu__home-link" href="index.html"></a>
+        <img class="aside-menu__sidenavbar-placeholder" src="images/bg-sidenav-bar.jpg" alt="">
+      </aside>
+      <!-- /aside-menu -->
+
+      <!-- content-wrapper -->
+      <div class="content-wrapper">
+
+        <!-- header-default -->
+        <header class="header-default">
+          <div class="header-default__logo">
+            <a href="index.html" data-toggle="tooltip" data-placement="bottom" title="Ir para início de ViaCerta">
+              <img src="images/logo-viacerta.svg" alt="ViaCerta">
+            </a>
+          </div>
+          <img tabindex="0" class="header-default__account" src="images/element-sidenav-bar-account.jpg" alt="Notificações | Alan Mathison">
+        </header>
+        <!-- /header-default -->
+
+
+
+        <section class="big-title big-title--with-info">
+          <h1 tabindex="0">Cadastro de Proposta</h1>
+          <ul class="big-title__info">
+            <li><strong>Proposta</strong>: 846251</li>
+            <li><strong>Produto</strong>: 0001 - CP VIACERTA</li>
+          </ul>
+        </section>
+
+
+        <!-- main -->
+        <main>
+          <div class="container container--main">
+
+            <div class="row">
+              <div class="col-12">
+                <div class="card card--default-padding">
+
+
+                  <div class="text-center mt-1 mb-5">
+                    <img class="proposal-timeline" src="images/proposal-register-steps-2.svg" alt="Etapa atual: Inicialização">
+                  </div>
+
+
+                  <!-- customer-card -->
+                  <div class="customer-card">
+                    <div class="customer-card__column">
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">CPF</div>
+                        442.223.782-22
+                      </div>
+                      <div class="customer-card__cell cell-to-hide">
+                        <div class="customer-card__cell__label">CEP</div>
+                        24255-000
+                      </div>
+                      <div class="customer-card__cell cell-to-hide">
+                        <div class="customer-card__cell__label">Grau de Instrução</div>
+                        Superior Incompleto
+                      </div>
+                    </div>
+
+                    <div class="customer-card__column">
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">Nome</div>
+                        Rafael Almeida Soares
+                      </div>
+                      <div class="customer-card__cell cell-to-hide">
+                        <div class="customer-card__cell__label">Tipo de Residência</div>
+                        Mora com família
+                      </div>
+                      <div class="customer-card__cell cell-to-hide">
+                        <div class="customer-card__cell__label">Classe Profissional</div>
+                        Assalariado
+                      </div>
+                    </div>
+
+                    <div class="customer-card__column">
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">Celular</div>
+                        (61) 98820-3232
+                      </div>
+                      <div class="customer-card__cell cell-to-hide">
+                        <div class="customer-card__cell__label">Estado Civil</div>
+                        Casado
+                      </div>
+                      <div class="customer-card__cell cell-to-hide">
+                        <div class="customer-card__cell__label">Renda Bruta</div>
+                        R$ 4.500
+                      </div>
+                    </div>
+
+                    <div class="customer-card__column">
+                      <div class="customer-card__cell">
+                        <div class="customer-card__cell__label">Limite Solicitado</div>
+                        R$ 3.000
+                      </div>
+                      <div class="customer-card__cell cell-to-hide">
+                        <div class="customer-card__cell__label">Dependentes</div>
+                        1
+                      </div>
+                      <div class="customer-card__cell cell-to-hide">
+                        <div class="customer-card__cell__label">Atividade Desde</div>
+                        09/2018
+                      </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <button type="submit" class="btn btn-lg btn-secondaryc cell-to-hide" data-toggle="modal" data-target="#modalEdit">
+                      <img src="images/icon-editar.svg" class="mr-1" alt="">
+                      Editar
+                    </button>
+
+                    <div class="customer-card__view-more">Ver mais</div>
+                  </div>
+                  <!-- /customer-card -->
+
+
+
+                  <form autocomplete="off" id="proposalForm">
+                    <div class="row justify-content-center">
+                      <div class="col-8">
+
+                        <div class="form-group">
+                          <label for="proposalCode" >Código SMS</label>
+                          <input autocomplete="off" autocomplete="off" type="text" class="form-control" id="proposalCode" placeholder="Código SMS" >
+
+                          <div class="input-warning">
+                            Um código foi enviado via SMS. Cliente não recebeu?
+                            <a href="#" onclick="return false;" data-toggle="modal" data-target="#modalResendCode">Reenviar código</a>
+                          </div>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalEmail" >E-mail</label>
+                              <input autocomplete="off" autocomplete="off" type="email" class="form-control" id="proposalEmail" placeholder="E-mail" >
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalPhone" required>Telefone para Recado</label>
+                              <input autocomplete="off" autocomplete="off" type="text" class="form-control" id="proposalPhone" placeholder="(00) 00000-0000" required>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalDependents" required>Número de Dependentes</label>
+                              <select class="form-control" id="proposalDependents" required>
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="0">Sem dependentes</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="Mais de 3">Mais de 3</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalProfession" required>Profissão</label>
+                              <select class="form-control" id="proposalProfession" required>
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="Administrador">Administrador</option>
+                                <option value="Analista">Analista</option>
+                                <option value="Contador">Contador</option>
+                                <option value="Estoquista">Estoquista</option>
+                                <option value="Garçom">Garçom</option>
+                                <option value="Marceneiro">Marceneiro</option>
+                                <option value="Motorista">Motorista</option>
+                                <option value="Operário">Operário</option>
+                                <option value="Pedreiro">Pedreiro</option>
+                                <option value="Professor">Professor</option>
+                                <option value="Supervisor">Supervisor</option>
+                                <option value="Vendedor">Vendedor</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalCompany" required>Empresa</label>
+                              <input autocomplete="off" autocomplete="off" type="text" class="form-control" id="proposalCompany" placeholder="Empresa" required>
+                            </div>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalCompanyPhone" required>Telefone da Empresa</label>
+                              <input autocomplete="off" autocomplete="off" type="text" class="form-control" id="proposalCompanyPhone" placeholder="(00) 0000-0000" required>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="form-group">
+                              <label for="proposalNote">Observação</label>
+                              <textarea class="form-control" id="proposalNote" placeholder="Inclua alguma observação, se necessário" style="min-height: 88px"></textarea>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="divider"></div>
+
+
+                        <!-- CÔNJUGE -->
+                        <div class="row">
+                          <div class="col-12">
+                            <h2 tabindex="0" class="mt-0">Cônjuge</h2>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalPartnerName" required>Nome do Cônjuge</label>
+                              <input autocomplete="off" autocomplete="off" type="text" class="form-control" id="proposalPartnerName" placeholder="Nome do Cônjuge">
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="proposalPartnerConsiderIncome">Considerar Renda?</label>
+                              <div class="mt-2">
+                                <div class="form-check form-check-inline">
+                                  <input autocomplete="off" autocomplete="off" class="form-check-input" name="proposalPartnerConsiderIncome" type="radio" id="proposalPartnerConsiderIncome1" value="1">
+                                  <label class="form-check-label" for="proposalPartnerConsiderIncome1">Sim</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                  <input autocomplete="off" autocomplete="off" class="form-check-input" name="proposalPartnerConsiderIncome" type="radio" id="proposalPartnerConsiderIncome0" value="0" checked>
+                                  <label class="form-check-label" for="proposalPartnerConsiderIncome0">Não</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div id="partnerInfo" style="display: none;">
+                          <div class="row">
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label for="proposalPartnerCpf" required>CPF do Cônjuge</label>
+                                <input autocomplete="off" autocomplete="off" type="text" class="form-control" id="proposalPartnerCpf" placeholder="CPF do Cônjuge">
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label for="proposalPartnerSalary" required>Renda Bruta do Cônjuge</label>
+                                <div class="input-currency">
+                                  <input value-type="currency" autocomplete="off" autocomplete="off" type="text" class="form-control" id="proposalPartnerSalary">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row mb-4">
+                            <div class="col-6">
+                              <div class="form-group">
+                                <label for="proposalPartnerProfessionalClass" required>Classe Profissional</label>
+                                <select class="form-control" id="proposalPartnerProfessionalClass" >
+                                  <option value="" disabled selected>Selecione</option>
+                                  <option value="Agricultor">Agricultor</option>
+                                  <option value="Aposentado">Aposentado</option>
+                                  <option value="Assalariado">Assalariado</option>
+                                  <option value="Autônomo">Autônomo</option>
+                                  <option value="Empresário">Empresário</option>
+                                  <option value="Profissional Liberal">Profissional Liberal</option>
+                                  <option value="Servidor Público">Servidor Público</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="clearfix"></div>
+                          </div>
+                        </div>
+                        <!-- /CÔNJUGE -->
+
+
+                      </div>
+                    </div>
+
+
+
+                    <div class="row justify-content-center">
+                      <div class="col-8">
+                        <button style="float: right;" type="submit" class="btn btn-lg btn-primary">Continuar</button>
+                        <!-- <button style="float: left;" type="submit" class="btn btn-lg btn-secondaryb" onclick="if (confirm('Tem certeza de que deseja descartar o que foi preenchido?\nA proposta não será perdida.')) { window.location.href = 'consultar_propostas.html'; } return false;">Cancelar</button> -->
+                        <button id="cancelBtn" style="float: left;" type="submit" class="btn btn-lg btn-secondaryb">Cancelar</button>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </main>
+        <!-- /main -->
+
+
+      </div>
+      <!-- /content-wrapper -->
+
+    </div>
+    <!-- global-wrapper -->
+
+
+    <script>
+    $(document).ready(function() {
+
+      $('#proposalPhone').mask('(00) 00000-0000');
+      $('#proposalCompanyPhone').mask('(00) 0000-0000');
+      $('#proposalPartnerCpf').mask('000.000.000-00');
+
+      // $('[value-type="currency"]').mask('#.##0,00', {reverse: true});
+      $('[value-type="currency"]').mask('#.##0', {reverse: true});
+
+
+      // Partner options
+      $('#proposalPartnerConsiderIncome1').click(function () {
+        $('#partnerInfo').fadeIn();
+      });
+      $('#proposalPartnerConsiderIncome0').click(function () {
+        $('#partnerInfo').fadeOut();
+      });
+
+
+
+
+      if (localStorage.getItem("proposalCode") !== null) {
+        $('#proposalCode').val(localStorage.getItem("proposalCode"));
+      }
+      if (localStorage.getItem("proposalEmail") !== null) {
+        $('#proposalEmail').val(localStorage.getItem("proposalEmail"));
+      }
+      if (localStorage.getItem("proposalPhone") !== null) {
+        $('#proposalPhone').val(localStorage.getItem("proposalPhone"));
+      }
+      if (localStorage.getItem("proposalProfession") !== null) {
+        $('#proposalProfession').val(localStorage.getItem("proposalProfession"));
+      }
+      if (localStorage.getItem("proposalDependents") !== null) {
+        $('#proposalDependents').val(localStorage.getItem("proposalDependents"));
+      }
+      if (localStorage.getItem("proposalCompany") !== null) {
+        $('#proposalCompany').val(localStorage.getItem("proposalCompany"));
+      }
+      if (localStorage.getItem("proposalCompanyPhone") !== null) {
+        $('#proposalCompanyPhone').val(localStorage.getItem("proposalCompanyPhone"));
+      }
+      if (localStorage.getItem("proposalNote") !== null) {
+        $('#proposalNote').val(localStorage.getItem("proposalNote"));
+      }
+      if (localStorage.getItem("proposalPartnerName") !== null) {
+        $('#proposalPartnerName').val(localStorage.getItem("proposalPartnerName"));
+      }
+      if (localStorage.getItem("proposalPartnerConsiderIncome") !== null) {
+        if (localStorage.getItem("proposalPartnerConsiderIncome") == 0) {
+          $('#proposalPartnerConsiderIncome2').attr('checked', true);
+        } else {
+          $('#proposalPartnerConsiderIncome1').attr('checked', true);
+          $('#partnerInfo').fadeIn();
+        }
+      }
+      if (localStorage.getItem("proposalPartnerCpf") !== null) {
+        $('#proposalPartnerCpf').val(localStorage.getItem("proposalPartnerCpf"));
+      }
+      if (localStorage.getItem("proposalPartnerSalary") !== null) {
+        $('#proposalPartnerSalary').val(localStorage.getItem("proposalPartnerSalary"));
+      }
+      if (localStorage.getItem("proposalPartnerProfessionalClass") !== null) {
+        $('#proposalPartnerProfessionalClass').val(localStorage.getItem("proposalPartnerProfessionalClass"));
+      }
+
+
+
+
+      // Submit proposal
+      $('#proposalForm').submit(function () {
+
+        // In case user wants to come back after lands the simulation page
+        localStorage.setItem("proposalCode", $('#proposalCode').val());
+        localStorage.setItem("proposalEmail", $('#proposalEmail').val());
+        localStorage.setItem("proposalPhone", $('#proposalPhone').val());
+        localStorage.setItem("proposalProfession", $('#proposalProfession'). children("option:selected"). val());
+        localStorage.setItem("proposalDependents", $('#proposalDependents'). children("option:selected"). val());
+        localStorage.setItem("proposalCompany", $('#proposalCompany').val());
+        localStorage.setItem("proposalCompanyPhone", $('#proposalCompanyPhone').val());
+        localStorage.setItem("proposalNote", $('#proposalNote').val());
+        localStorage.setItem("proposalPartnerName", $('#proposalPartnerName').val());
+        localStorage.setItem("proposalPartnerConsiderIncome", $("input[name='proposalPartnerConsiderIncome']:checked"). val());
+        localStorage.setItem("proposalPartnerCpf", $('#proposalPartnerCpf').val());
+        localStorage.setItem("proposalPartnerSalary", $('#proposalPartnerSalary').val());
+        localStorage.setItem("proposalPartnerProfessionalClass", $('#proposalPartnerProfessionalClass'). children("option:selected"). val());
+
+        window.location.href = 'proposta_simulacao.html';
+
+        // $("#modalSending").modal({
+        //   backdrop: 'static',
+        //   keyboard: false
+        // });
+        //
+        // setTimeout(function(){
+        //   window.location.href = 'proposta_simulacao.html';
+        // }, 5000);
+
+        return false;
+      });
+
+
+      $('#cancelBtn').click(function () {
+        if (confirm('Tem certeza de que deseja descartar o que foi preenchido?\nA proposta não será perdida.')) {
+          localStorage.clear();
+          window.location.href = 'consultar_propostas.html';
+        }
+
+        return false;
+      });
+
+
+    });
+    </script>
+
+  </body>
+</html>

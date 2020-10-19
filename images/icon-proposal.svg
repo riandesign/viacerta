@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Group 5</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.-Dashboard" transform="translate(-689.000000, -218.000000)">
+            <g id="Group" transform="translate(602.000000, 128.000000)">
+                <g id="Group-6" transform="translate(0.000000, 60.000000)">
+                    <g id="Group-5" transform="translate(87.000000, 30.000000)">
+                        <rect id="Rectangle-Copy-2" fill="#224D74" x="0" y="0" width="48" height="48"></rect>
+                        <g id="Group-12" transform="translate(12.000000, 6.000000)">
+                            <path d="M21.7817,33 L2.2187,33 C1.2687,33 0.4997,32.231 0.4997,31.282 L0.4997,4.718 C0.4997,3.769 1.2687,3 2.2187,3 L21.7817,3 C22.7307,3 23.4997,3.769 23.4997,4.718 L23.4997,31.282 C23.4997,32.231 22.7307,33 21.7817,33 Z" id="Stroke-5" stroke-opacity="0.32" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M5.8652,23.5 L18.1352,23.5 C17.8792,21.208 16.3822,19.295 14.3212,18.459 C15.0032,17.831 15.4372,16.938 15.4372,15.938 C15.4372,14.039 13.8982,12.5 12.0002,12.5 C10.1012,12.5 8.5622,14.039 8.5622,15.938 C8.5622,16.938 8.9972,17.831 9.6792,18.459 C7.6182,19.295 6.1212,21.208 5.8652,23.5 Z" id="Stroke-7" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M29,6 C29,9.313 26.313,12 23,12 C19.687,12 17,9.313 17,6 C17,2.687 19.687,0 23,0 C26.313,0 29,2.687 29,6" id="Fill-9" fill="#224D74"></path>
+                            <path d="M29,6 C29,9.313 26.313,12 23,12 C19.687,12 17,9.313 17,6 C17,2.687 19.687,0 23,0 C26.313,0 29,2.687 29,6 Z" id="Stroke-11" stroke="#FFFFFF" stroke-width="0.961" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <polygon id="Fill-13" fill="#FFFFFF" points="26.5 5.0454 23.955 5.0454 23.955 2.5004 22.045 2.5004 22.045 5.0454 19.5 5.0454 19.5 6.9544 22.045 6.9544 22.045 9.5004 23.955 9.5004 23.955 6.9544 26.5 6.9544"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
